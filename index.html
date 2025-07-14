@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Lee - Bioinformatics Researcher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            padding: 60px 0;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin: 0 auto 30px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #667eea;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+            padding: 15px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            margin-top: -50px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            padding: 60px;
+        }
+
+        .section:not(:last-child) {
+            border-bottom: 1px solid #eee;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .research-areas {
+            list-style: none;
+        }
+
+        .research-areas li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .research-areas li:last-child {
+            border-bottom: none;
+        }
+
+        .research-areas i {
+            color: #667eea;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .project-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .publications {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .publication {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .publication:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .publication h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .publication p {
+            color: #666;
+            font-style: italic;
+        }
+
+        .contact-section {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 50px;
+        }
+
+        .contact-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .contact-item:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 40px 30px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="profile-img">
+                <i class="fas fa-dna"></i>
+            </div>
+            <h1>Hyojae James Lee</h1>
+            <p>Bioinformatics Researcher & Cancer Immunology Expert</p>
+            <p>Graduate Student at NYU & Research Assistant at New York Genome Center</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/jameshyojaelee" class="social-link" target="_blank" title="GitHub Portfolio">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/jameshyojaelee/" class="social-link" target="_blank" title="LinkedIn Profile">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://x.com/JamesHyojaeLee" class="social-link" target="_blank" title="Twitter/X @JamesHyojaeLee">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <a href="mailto:james.hyojae.lee@gmail.com" class="social-link" title="Email Contact">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://orcid.org/0000-0003-3079-5484" class="social-link" target="_blank" title="ORCID Profile">
+                    <i class="fab fa-orcid"></i>
+                </a>
+                <a href="https://scholar.google.com/citations?user=Mwmq8b4AAAAJ&hl=en" class="social-link" target="_blank" title="Google Scholar">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="section">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I'm an innovative researcher with expertise in Next-Generation Sequencing and cancer immunology, with a strong track record of developing novel methodologies and leading high-impact projects. Currently pursuing my Master's in Bioinformatics and Systems Biology at New York University while conducting cutting-edge research at the New York Genome Center.</p>
+                        
+                        <p>My research focuses on understanding tumor microenvironments, developing novel therapeutic approaches, and advancing precision medicine through computational biology and single-cell analysis. I'm adept at developing analytical pipelines and collaborating with cross-functional teams.</p>
+                    </div>
+                    
+                    <div class="research-areas">
+                        <ul class="research-areas">
+                            <li><i class="fas fa-microscope"></i> Cancer Immunology & Tumor Microenvironment</li>
+                            <li><i class="fas fa-dna"></i> Single-cell RNA Sequencing & Multi-omics</li>
+                            <li><i class="fas fa-cut"></i> CRISPR Screens & Gene Discovery</li>
+                            <li><i class="fas fa-pills"></i> Precision Medicine & Therapeutics</li>
+                            <li><i class="fas fa-chart-line"></i> Quantum Barcoding Technology</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Education</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <div style="margin-bottom: 30px;">
+                            <h3 style="color: #2c3e50; margin-bottom: 10px;"><i class="fas fa-graduation-cap" style="color: #667eea; margin-right: 10px;"></i>New York University</h3>
+                            <p style="font-weight: 500; color: #667eea;">Master of Science in Bioinformatics and Systems Biology</p>
+                            <p style="color: #666;">September 2024 - May 2025 | New York, NY</p>
+                        </div>
+                        
+                        <div>
+                            <h3 style="color: #2c3e50; margin-bottom: 10px;"><i class="fas fa-graduation-cap" style="color: #667eea; margin-right: 10px;"></i>University of California San Diego</h3>
+                            <p style="font-weight: 500; color: #667eea;">Bachelor of Science in General Biology</p>
+                            <p style="font-weight: 500; color: #667eea;">Bachelor of Science in Political Science - Data Analytics</p>
+                            <p style="color: #666;">January 2019 - July 2021 | La Jolla, CA</p>
+                        </div>
+                    </div>
+                    
+                    <div class="research-areas">
+                        <ul class="research-areas">
+                            <li><i class="fas fa-flask"></i> Bioinformatics & Systems Biology</li>
+                            <li><i class="fas fa-dna"></i> Molecular & Cell Biology</li>
+                            <li><i class="fas fa-chart-bar"></i> Data Analytics & Statistics</li>
+                            <li><i class="fas fa-brain"></i> Computational Biology</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Professional Experience</h2>
+                <div class="publications">
+                    <div class="publication">
+                        <h4><i class="fas fa-briefcase" style="color: #667eea; margin-right: 10px;"></i>New York Genome Center - Sanjana Lab</h4>
+                        <p style="font-weight: 500; color: #2c3e50;">Research Assistant | June 2025 - Present</p>
+                        <p style="font-weight: 500; color: #2c3e50;">Graduate Student Researcher | August 2024 - June 2025</p>
+                        <ul style="margin-top: 10px; color: #666;">
+                            <li>Investigate human primary NK cells to identify novel immunomodulatory genes</li>
+                            <li>Lead CRISPR screens to identify novel genetic regulators in NAFLD</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="publication">
+                        <h4><i class="fas fa-briefcase" style="color: #667eea; margin-right: 10px;"></i>Scale Biosciences</h4>
+                        <p style="font-weight: 500; color: #2c3e50;">Research Associate | January 2023 - July 2024 | San Diego, CA</p>
+                        <ul style="margin-top: 10px; color: #666;">
+                            <li>Played a key role in developing Quantum Barcoding technology single-cell RNA assay using combinatorial indexing</li>
+                            <li>Developed single-cell protein assay in collaboration with Biolegend and Revvity (TotalSeq® PhenoCyte)</li>
+                            <li>Performed bioinformatic analysis and QC of internal single cell omics data</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="publication">
+                        <h4><i class="fas fa-briefcase" style="color: #667eea; margin-right: 10px;"></i>UC San Diego, Moores Cancer Center</h4>
+                        <p style="font-weight: 500; color: #2c3e50;">Research Associate at Stupack Lab | January 2023 - October 2023</p>
+                        <p style="font-weight: 500; color: #2c3e50;">Research Associate at Chen Lab | August 2021 - November 2022</p>
+                        <p style="font-weight: 500; color: #2c3e50;">Undergraduate Research Assistant | February 2020 - July 2021</p>
+                        <ul style="margin-top: 10px; color: #666;">
+                            <li>Delivered scRNA-seq analysis of high-grade serous ovarian cancer, delivering key insights into platinum-based chemotherapy resistance (1st author publication)</li>
+                            <li>Led a project investigating tumor microenvironment changes in pancreatic ductal adenocarcinoma, uncovering significant changes in tumor-infiltrating lymphocytes and macrophage polarization upon SUMOylation inhibition (1st author publication)</li>
+                            <li>Evaluated the effects of SUMOylation inhibition in CAR-T and liver metastasis</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>🎯 TAK981_KPC Analysis</h3>
+                        <p>Comprehensive analysis of KPC cells treated with TAK981 and anti-PD-L1 therapy. R-based computational pipeline for understanding cancer immunotherapy combinations and drug screening data.</p>
+                        <a href="https://github.com/jameshyojaelee/TAK981_KPC" class="project-link" target="_blank">
+                            View Project <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>🧬 Single-cell HGSOC Study</h3>
+                        <p>Single-cell RNA-seq analysis of High-Grade Serous Ovarian Cancer focusing on platinum-based chemotherapy resistance mechanisms and tumor microenvironment characterization.</p>
+                        <a href="https://github.com/jameshyojaelee/single-cell-HGSOC" class="project-link" target="_blank">
+                            View Project <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>🔬 ATCC Cell Line Database</h3>
+                        <p>Python-based tools for comprehensive cell line metadata management and analysis. A valuable bioinformatics resource for cancer research and cell line characterization.</p>
+                        <a href="https://github.com/jameshyojaelee/ATCC_info" class="project-link" target="_blank">
+                            View Project <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming & Data Science</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">R</span>
+                            <span class="skill-tag">Bash</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">TensorFlow</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Bioinformatics & Genomics</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Single-cell RNA-seq</span>
+                            <span class="skill-tag">NGS Analysis</span>
+                            <span class="skill-tag">CRISPR Screens</span>
+                            <span class="skill-tag">Multi-omics</span>
+                            <span class="skill-tag">BioConductor</span>
+                            <span class="skill-tag">BLAST</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Infrastructure & Tools</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">HPC</span>
+                            <span class="skill-tag">Linux/Unix</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Docker</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Laboratory Techniques</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">NGS Library Prep</span>
+                            <span class="skill-tag">Flow Cytometry</span>
+                            <span class="skill-tag">Cell Culture</span>
+                            <span class="skill-tag">Western Blot</span>
+                            <span class="skill-tag">Microscopy</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Publications</h2>
+                <div class="publications">
+                    <h3 style="color: #2c3e50; margin-bottom: 20px; font-size: 1.4rem;"><i class="fas fa-star" style="color: #667eea; margin-right: 10px;"></i>First and Co-first Author Publications</h3>
+                    
+                    <div class="publication">
+                        <h4>Liposomal doxorubicin, but not platinum-taxane, supports MHC-II expression and immune maturation in the ovarian cancer tumor microenvironment</h4>
+                        <p><strong>Lee, H. J.</strong>, Chen, X., Ozmadenci, D. et al. <em>Submitted 2025</em></p>
+                    </div>
+                    
+                    <div class="publication">
+                        <h4>Inhibition of SUMOylation Induces Adaptive Anti-Tumor Immunity Against Pancreatic Cancer through Multiple Effects on the Tumor Microenvironment</h4>
+                        <p>Erdem, S., <strong>Lee, H. J.</strong>, Suryanarayanan, J., et al. <em>Molecular Cancer Therapeutics 2024</em></p>
+                    </div>
+                    
+                    <h3 style="color: #2c3e50; margin: 30px 0 20px 0; font-size: 1.4rem;"><i class="fas fa-users" style="color: #667eea; margin-right: 10px;"></i>Co-author Publications</h3>
+                    
+                    <div class="publication">
+                        <h4>SUMO Inhibition Plus CD40 Agonism Increases Anti-Tumor Immunogenicity Through Interferon Mediated Macrophage Activation</h4>
+                        <p>Li, K., Courelli, A., <strong>Lee, H. J.</strong>, et al. <em>bioRxiv 2024</em></p>
+                    </div>
+                    
+                    <div class="publication">
+                        <h4>An Ex Vivo Organotypic Culture Platform for Functional Interrogation of Human Appendiceal Cancer Reveals a Prominent and Heterogenous Immunological Landscape</h4>
+                        <p>Weitz, J.*, Hurtado de Mendoza, T.*, Tiriac, H., <strong>Lee, J.</strong>, et al. <em>Clinical Cancer Research 2022</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="contact-section">
+                    <h2>Let's Connect</h2>
+                    <p>Interested in collaboration, research opportunities, or just want to chat about bioinformatics and cancer research? I'm always open to discussing innovative projects and potential partnerships.</p>
+                    
+                    <div class="contact-info">
+                        <a href="mailto:james.hyojae.lee@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            james.hyojae.lee@gmail.com
+                        </a>
+                        <a href="tel:+18582101206" class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            (858) 210-1206
+                        </a>
+                        <a href="https://www.linkedin.com/in/jameshyojaelee/" class="contact-item" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn Profile
+                        </a>
+                        <a href="https://x.com/JamesHyojaeLee" class="contact-item" target="_blank">
+                            <i class="fab fa-x-twitter"></i>
+                            @JamesHyojaeLee
+                        </a>
+                        <a href="https://github.com/jameshyojaelee" class="contact-item" target="_blank">
+                            <i class="fab fa-github"></i>
+                            GitHub Portfolio
+                        </a>
+                        <a href="https://orcid.org/0000-0003-3079-5484" class="contact-item" target="_blank">
+                            <i class="fab fa-orcid"></i>
+                            ORCID Profile
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=Mwmq8b4AAAAJ&hl=en" class="contact-item" target="_blank">
+                            <i class="fas fa-graduation-cap"></i>
+                            Google Scholar
+                        </a>
+                    </div>
+                    
+                    <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.2);">
+                        <h3 style="color: white; margin-bottom: 15px; font-size: 1.2rem;">📍 Location</h3>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">New York, NY 10013</p>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h3 style="color: white; margin-bottom: 15px; font-size: 1.2rem;">📄 Download CV</h3>
+                        <a href="#" onclick="alert('CV download feature - you can upload your CV file to GitHub and link it here!')" style="background: rgba(255,255,255,0.2); color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; font-weight: 500; transition: all 0.3s ease;">
+                            <i class="fas fa-download"></i>
+                            Download Full CV
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Add smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html> 
