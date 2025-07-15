@@ -733,9 +733,9 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="hero-subtitle">&gt; welcome to my personal website!;</div>
+            <div class="hero-subtitle">&gt; >welcome to my personal website!;</div>
             <h1 class="hero-title">James Lee</h1>
-            <p class="hero-description">Bioinformatics Researcher<br>Research Assistant at New York Genome Center</p>
+            <p class="hero-description">Bioinformatics Researcher</p>
             
             <div class="hero-cta">
                 <a href="#about" class="btn btn-primary">Explore My Work</a>
@@ -993,12 +993,6 @@
                 </h3>
                 
                 <div class="publication-item">
-                    <div class="publication-title">Liposomal doxorubicin, but not platinum-taxane, supports MHC-II expression and immune maturation in the ovarian cancer tumor microenvironment</div>
-                    <div class="publication-authors"><strong>Lee, H. J.</strong>, Chen, X., Ozmadenci, D. et al.</div>
-                    <div class="publication-journal">Submitted 2025</div>
-                </div>
-                
-                <div class="publication-item">
                     <div class="publication-title">Inhibition of SUMOylation Induces Adaptive Anti-Tumor Immunity Against Pancreatic Cancer through Multiple Effects on the Tumor Microenvironment</div>
                     <div class="publication-authors">Erdem, S., <strong>Lee, H. J.</strong>, Suryanarayanan, J., et al.</div>
                     <div class="publication-journal">Molecular Cancer Therapeutics 2024</div>
@@ -1047,16 +1041,6 @@
                         <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🧬 Single-cell HGSOC Study</h3>
                         <p style="color: var(--text-secondary); margin-bottom: 1rem;">Single-cell RNA-seq analysis of High-Grade Serous Ovarian Cancer focusing on platinum-based chemotherapy resistance mechanisms.</p>
                         <a href="https://github.com/jameshyojaelee/single-cell-HGSOC" target="_blank" style="color: var(--primary-color); text-decoration: none;">
-                            View Project <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-content">
-                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🔬 ATCC Cell Line Database</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Python-based tools for comprehensive cell line metadata management and analysis. A valuable bioinformatics resource for cancer research.</p>
-                        <a href="https://github.com/jameshyojaelee/ATCC_info" target="_blank" style="color: var(--primary-color); text-decoration: none;">
                             View Project <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
@@ -1288,7 +1272,7 @@
         window.addEventListener('load', () => {
             const subtitle = document.querySelector('.hero-subtitle');
             setTimeout(() => {
-                typeWriter(subtitle, 'welcome to my personal website!', 100);
+                typeWriter(subtitle, '>welcome to my personal website!;', 100);
             }, 1000);
         });
     </script>
