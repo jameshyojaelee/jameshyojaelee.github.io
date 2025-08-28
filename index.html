@@ -187,7 +187,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             opacity: 0;
-            animation: slideUp 0.8s ease forwards 0.4s;
+            animation: slideUp 0.8s ease forwards 0.5s;
         }
 
         .hero-description {
@@ -195,7 +195,27 @@
             color: var(--text-secondary);
             margin-bottom: 2rem;
             opacity: 0;
-            animation: slideUp 0.8s ease forwards 0.6s;
+            animation: slideUp 0.8s ease forwards 0.7s;
+        }
+
+        .hero-avatar {
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards 0.3s;
+        }
+
+        .avatar-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            box-shadow: var(--shadow-glow);
+            transition: all 0.3s ease;
+        }
+
+        .avatar-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.5);
         }
 
         .hero-cta {
@@ -204,7 +224,7 @@
             justify-content: center;
             flex-wrap: wrap;
             opacity: 0;
-            animation: slideUp 0.8s ease forwards 0.8s;
+            animation: slideUp 0.8s ease forwards 0.9s;
         }
 
         .btn {
@@ -734,6 +754,9 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-subtitle">&gt; >welcome to my personal website!;</div>
+            <div class="hero-avatar">
+                <img src="emoji.png" alt="James Lee" class="avatar-image">
+            </div>
             <h1 class="hero-title">James Lee</h1>
             <p class="hero-description">Bioinformatics Researcher</p>
             
