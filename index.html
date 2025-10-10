@@ -383,7 +383,19 @@
         }
 
         .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (max-width: 1024px) {
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* About Section */
@@ -936,6 +948,16 @@
                         <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🧬 Single-cell HGSOC Study</h3>
                         <p style="color: var(--text-secondary); margin-bottom: 1rem;">Single-cell RNA-seq analysis of High-Grade Serous Ovarian Cancer focusing on platinum-based chemotherapy resistance mechanisms.</p>
                         <a href="https://github.com/jameshyojaelee/single-cell-HGSOC" target="_blank" style="color: var(--primary-color); text-decoration: none;">
+                            View Project <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🧬 AbProp</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Lightweight, HPC-friendly framework for building and training sequence-only antibody models. Features PyTorch 2.1.2 + CUDA 12.x, distributed training support, and metrics for MLM perplexity, CDR/frame classification, and liability regression.</p>
+                        <a href="https://github.com/jameshyojaelee/AbProp" target="_blank" style="color: var(--primary-color); text-decoration: none;">
                             View Project <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
