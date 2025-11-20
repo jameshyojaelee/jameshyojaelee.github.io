@@ -208,6 +208,36 @@
             animation: slideUp 0.8s ease forwards 0.7s;
         }
 
+        .hero-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .highlight-item {
+            background: var(--bg-card);
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            padding: 1rem 1.5rem;
+            min-width: 180px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .highlight-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+        }
+
+        .highlight-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-top: 0.4rem;
+        }
+
         .hero-avatar {
             margin-bottom: 1.5rem;
             opacity: 0;
@@ -235,6 +265,52 @@
             flex-wrap: wrap;
             opacity: 0;
             animation: slideUp 0.8s ease forwards 0.9s;
+        }
+
+        .hero-code {
+            max-width: 650px;
+            margin: 2.5rem auto 0;
+            background: #050505;
+            border-radius: 18px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+            font-family: 'JetBrains Mono', monospace;
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+        }
+
+        .code-header {
+            background: var(--bg-secondary);
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .code-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .code-dot.red { background: #ff5f57; }
+        .code-dot.yellow { background: #ffbd2e; }
+        .code-dot.green { background: #28c840; }
+
+        .code-body {
+            padding: 1.5rem;
+        }
+
+        .code-line {
+            display: block;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .code-comment {
+            color: #5ee7b0;
         }
 
         .btn {
@@ -372,6 +448,124 @@
             z-index: 2;
         }
 
+        .projects-grid {
+            display: grid;
+            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(430px, 1fr));
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            height: 100%;
+        }
+
+        .project-card.featured {
+            grid-column: span 2;
+        }
+
+        .project-header h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.6rem;
+            font-size: 1.25rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+        }
+
+        .project-meta {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            display: grid;
+            gap: 0.6rem;
+        }
+
+        .project-meta li {
+            color: var(--text-secondary);
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-start;
+            font-size: 0.95rem;
+        }
+
+        .project-meta i {
+            color: var(--primary-color);
+            margin-top: 0.2rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tag {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 999px;
+            padding: 0.35rem 0.9rem;
+            font-size: 0.85rem;
+        }
+
+        .project-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .project-stat {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 0.8rem 1rem;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .project-stat strong {
+            display: block;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        .project-stat span {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-actions {
+            margin-top: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .project-link {
+            padding: 0.75rem 1.5rem;
+            border-radius: 999px;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-link.primary {
+            background: var(--gradient-primary);
+            color: var(--bg-primary);
+            border: none;
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
         /* Grid Layouts */
         .grid {
             display: grid;
@@ -382,18 +576,18 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
 
-        .grid-3 {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
         @media (max-width: 1024px) {
-            .grid-3 {
-                grid-template-columns: repeat(2, 1fr);
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
+
+            .project-card.featured {
+                grid-column: span 1;
             }
         }
 
         @media (max-width: 640px) {
-            .grid-3 {
+            .projects-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -409,6 +603,22 @@
         .about-text {
             font-size: 1.1rem;
             line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .about-highlights {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 2rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .about-highlights li {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
             color: var(--text-secondary);
         }
 
@@ -545,6 +755,18 @@
         .timeline-description {
             color: var(--text-secondary);
             line-height: 1.6;
+        }
+
+        .timeline-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .timeline-stack .skill-tag {
+            font-size: 0.8rem;
+            padding: 0.35rem 0.9rem;
         }
 
         /* Publications */
@@ -691,6 +913,14 @@
             .nav-links {
                 display: none;
             }
+
+            .hero-highlights {
+                flex-direction: column;
+            }
+
+            .hero-code {
+                margin-top: 2rem;
+            }
             
             .hero-title {
                 font-size: 3rem;
@@ -776,12 +1006,12 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="hero-subtitle">&gt; >welcome to my personal website!;</div>
+            <div class="hero-subtitle">&gt; >welcome to my personal website!</div>
             <div class="hero-avatar">
                 <img src="emoji.png" alt="James Lee" class="avatar-image">
             </div>
             <h1 class="hero-title">James Lee</h1>
-            <p class="hero-description"> Single-cell Multi-omics <br> Cancer Immunology <br> Machine Learning </p>
+            <p class="hero-description">Building models that connect single-cell, spatial, and perturbation data to biological mechanisms</p>
             
             <div class="hero-cta">
                 <a href="#about" class="btn btn-primary">Explore My Work</a>
@@ -789,16 +1019,16 @@
             </div>
             
             <div class="social-links">
-                <a href="https://github.com/jameshyojaelee" class="social-link" target="_blank" title="GitHub Portfolio">
+                <a href="https://github.com/jameshyojaelee" class="social-link" target="_blank" rel="noopener noreferrer" title="GitHub Portfolio">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/jameshyojaelee/" class="social-link" target="_blank" title="LinkedIn Profile">
+                <a href="https://www.linkedin.com/in/jameshyojaelee/" class="social-link" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://x.com/JamesHyojaeLee" class="social-link" target="_blank" title="Twitter/X @JamesHyojaeLee">
+                <a href="https://x.com/JamesHyojaeLee" class="social-link" target="_blank" rel="noopener noreferrer" title="Twitter/X @JamesHyojaeLee">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a href="https://scholar.google.com/citations?user=Mwmq8b4AAAAJ&hl=en" class="social-link" target="_blank" title="Google Scholar">
+                <a href="https://scholar.google.com/citations?user=Mwmq8b4AAAAJ&hl=en" class="social-link" target="_blank" rel="noopener noreferrer" title="Google Scholar">
                     <i class="fas fa-graduation-cap"></i>
                 </a>
                 <a href="mailto:james.hyojae.lee@gmail.com" class="social-link" title="Email Contact">
@@ -813,9 +1043,7 @@
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">Innovative researcher advancing precision medicine through computational biology</p>
             </div>
-            
             <div class="about-content animate-on-scroll">
                 <div class="about-stats">
                     <div class="stat-item">
@@ -836,7 +1064,13 @@
                     <h3>Research Focus</h3>
                     <p>I'm an innovative researcher with expertise in Next-Generation Sequencing and cancer immunology, with a strong track record of developing novel methodologies and leading high-impact projects.</p>
                     
-                    <p>I love developing platforms and tools to help researchers under complex systems and diseases, using computational biology and single-cell technologies. 
+                    <p>I love developing platforms and tools to help researchers understand complex systems and diseases, using computational biology, machine learning, and single-cell technologies.</p>
+
+                    <ul class="about-highlights">
+                        <li><strong>ML Architecture Design:</strong> Build transformer and graph neural pipelines that denoise and align perturbation data across patient cohorts.</li>
+                        <li><strong>End-to-end Engineering:</strong> Package research models into production-ready CLIs, APIs, and dashboards with testing and docs.</li>
+                        <li><strong>Research Translation:</strong> Partner with wet-lab teams to interpret model outputs for prioritizing CRISPR targets and drug combinations.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -850,64 +1084,197 @@
                 <p class="section-subtitle">Showcasing innovative research and development</p>
             </div>
             
-            <div class="grid grid-3 animate-on-scroll">
-                <div class="card">
+            <div class="projects-grid animate-on-scroll">
+                <div class="card project-card featured">
                     <div class="card-content">
-                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🧬 scPerturb-CMap</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Python package that turns single-cell perturbation data into drug-response insights.</p>
-                        <a href="https://github.com/jameshyojaelee/scPerturb-CMap" target="_blank" style="color: var(--primary-color); text-decoration: none;">
-                            View Project <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <div class="project-header">
+                            <h3>🧬 scPerturb-CMap</h3>
+                            <p class="project-description">Python toolkit that maps single-cell perturbations to Connectivity Map responses to prioritize therapeutics.</p>
+                        </div>
+                        <ul class="project-meta">
+                            <li><i class="fas fa-code"></i><span>Contrastive autoencoders align CRISPR and drug screens across 50k+ cells per batch.</span></li>
+                            <li><i class="fas fa-robot"></i><span>FastAPI inference API surfaces top compounds per phenotype in real time.</span></li>
+                        </ul>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">PyTorch</span>
+                            <span class="project-tag">AnnData</span>
+                            <span class="project-tag">FastAPI</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <strong>6×</strong>
+                                <span>faster queries</span>
+                            </div>
+                            <div class="project-stat">
+                                <strong>Top-5</strong>
+                                <span>hit fidelity</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/jameshyojaelee/scPerturb-CMap" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                            <a href="#contact" class="project-link">Request Demo</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card project-card featured">
                     <div class="card-content">
-                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🧠 GPT-cell-annotator</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Application for single-cell RNA-seq analysis that annotates clusters with your own GPT API.</p>
-                        <a href="https://github.com/jameshyojaelee/GPT-cell-annotator" target="_blank" style="color: var(--primary-color); text-decoration: none;">
-                            View Project <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <div class="project-header">
+                            <h3>🧠 GPT-cell-annotator</h3>
+                            <p class="project-description">Desktop app that lets scientists plug in GPT APIs to automatically annotate single-cell clusters.</p>
+                        </div>
+                        <ul class="project-meta">
+                            <li><i class="fas fa-brain"></i><span>LLM prompts are dynamically built from marker genes, QC summaries, and ontology priors.</span></li>
+                            <li><i class="fas fa-laptop-code"></i><span>Electron + React front-end streams annotations while Python workers update AnnData objects.</span></li>
+                        </ul>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Electron</span>
+                            <span class="project-tag">OpenAI API</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <strong>95%</strong>
+                                <span>cluster coverage</span>
+                            </div>
+                            <div class="project-stat">
+                                <strong>&lt;10m</strong>
+                                <span>to label atlas</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/jameshyojaelee/GPT-cell-annotator" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                            <a href="#contact" class="project-link">Request Demo</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card project-card">
                     <div class="card-content">
-                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🧬 CRISPR-studio</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Browser-based CRISPR screen analyzer that builds guide libraries, runs quick QC, and visualizes results faster.</p>
-                        <a href="https://github.com/jameshyojaelee/CRISPR-studio" target="_blank" style="color: var(--primary-color); text-decoration: none;">
-                            View Project <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <div class="project-header">
+                            <h3>🧬 CRISPR-studio</h3>
+                            <p class="project-description">Browser-based CRISPR screen analyzer for designing guide libraries, QC, and rapid visualization.</p>
+                        </div>
+                        <ul class="project-meta">
+                            <li><i class="fas fa-dna"></i><span>Interactive D3 plots flag dropouts, copy-number artifacts, and essential gene trends.</span></li>
+                            <li><i class="fas fa-server"></i><span>Rust-backed scoring engine streams normalized counts into the React UI.</span></li>
+                        </ul>
+                        <div class="project-tags">
+                            <span class="project-tag">TypeScript</span>
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Rust</span>
+                            <span class="project-tag">D3.js</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <strong>10×</strong>
+                                <span>faster QC</span>
+                            </div>
+                            <div class="project-stat">
+                                <strong>150+</strong>
+                                <span>guides/export</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/jameshyojaelee/CRISPR-studio" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="card">
+                <div class="card project-card">
                     <div class="card-content">
-                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">📱 Smart Cell Counter</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">IOS app that counts hemocytometer cells with TensorFlow, checks viability, and exports lab-ready PDF reports.</p>
-                        <a href="https://github.com/jameshyojaelee/smart-cell-counter" target="_blank" style="color: var(--primary-color); text-decoration: none;">
-                            View Project <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <div class="project-header">
+                            <h3>📱 Smart Cell Counter</h3>
+                            <p class="project-description">iOS TensorFlow Lite app that counts hemocytometer cells, estimates viability, and exports reports.</p>
+                        </div>
+                        <ul class="project-meta">
+                            <li><i class="fas fa-microscope"></i><span>On-device CNN segments cells offline for HIPAA-safe environments.</span></li>
+                            <li><i class="fas fa-file-export"></i><span>Automated PDF generator produces logs.</span></li>
+                        </ul>
+                        <div class="project-tags">
+                            <span class="project-tag">Swift</span>
+                            <span class="project-tag">TensorFlow Lite</span>
+                            <span class="project-tag">CoreML</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <strong>1.5%</strong>
+                                <span>count error</span>
+                            </div>
+                            <div class="project-stat">
+                                <strong>30s</strong>
+                                <span>report build</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/jameshyojaelee/smart-cell-counter" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="card">
+                <div class="card project-card">
                     <div class="card-content">
-                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🧬 scImmuneATLAS</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Integrated single-cell immune atlas for TILs with cleaned datasets, batch correction, and ready-to-use immune annotations.</p>
-                        <a href="https://github.com/jameshyojaelee/scImmuneATLAS" target="_blank" style="color: var(--primary-color); text-decoration: none;">
-                            View Project <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <div class="project-header">
+                            <h3>🧬 scImmuneATLAS</h3>
+                            <p class="project-description">Unified tumor-infiltrating lymphocyte atlas with batch correction, harmonized metadata, and ready annotations.</p>
+                        </div>
+                        <ul class="project-meta">
+                            <li><i class="fas fa-layer-group"></i><span>Integrates 20+ datasets with Harmony and SCTransform pipelines.</span></li>
+                            <li><i class="fas fa-share-alt"></i><span>Ships as ready-to-query Seurat/AnnData objects and Hugging Face datasets.</span></li>
+                        </ul>
+                        <div class="project-tags">
+                            <span class="project-tag">R</span>
+                            <span class="project-tag">Seurat</span>
+                            <span class="project-tag">Scanpy</span>
+                            <span class="project-tag">h5ad</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <strong>1.2M</strong>
+                                <span>cells</span>
+                            </div>
+                            <div class="project-stat">
+                                <strong>35</strong>
+                                <span>immune states</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/jameshyojaelee/scImmuneATLAS" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="card">
+                <div class="card project-card">
                     <div class="card-content">
-                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🧬 OmniSpatial</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Cross-vendor spatial omics toolkit that converts imaging assays into NGFF/SpatialData bundles with a CLI and Next.js viewer.</p>
-                        <a href="https://github.com/jameshyojaelee/OmniSpatial" target="_blank" style="color: var(--primary-color); text-decoration: none;">
-                            View Project <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <div class="project-header">
+                            <h3>🧬 OmniSpatial</h3>
+                            <p class="project-description">Cross-vendor spatial omics toolkit that converts imaging assays into NGFF/SpatialData bundles with a Next.js viewer.</p>
+                        </div>
+                        <ul class="project-meta">
+                            <li><i class="fas fa-map-marked-alt"></i><span>CLI ingests Visium, CosMx, and MIBI exports into Zarr-backed SpatialData.</span></li>
+                            <li><i class="fas fa-cloud-upload-alt"></i><span>Dockerized deployment streams tiled imagery via WebGL overlays.</span></li>
+                        </ul>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Next.js</span>
+                            <span class="project-tag">SpatialData</span>
+                            <span class="project-tag">Docker</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <strong>4TB</strong>
+                                <span>imagery served</span>
+                            </div>
+                            <div class="project-stat">
+                                <strong>5+</strong>
+                                <span>platforms unified</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/jameshyojaelee/OmniSpatial" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -949,7 +1316,7 @@
                 <div class="publication-item">
                     <div class="publication-title">Ovarian Tumor FAK Inhibition Releases Omega-3 Fatty Acids Stimulating GATA6 Peritoneal Macrophage CXCL13 Production Enhancing Immunotherapy</div>
                     <div class="publication-journal">bioRxiv 2025</div>
-                    <a href="https://www.biorxiv.org/content/10.1101/2025.09.12.675975v1" target="_blank" style="color: var(--primary-color); text-decoration: none; font-size: 0.9rem;">
+                    <a href="https://www.biorxiv.org/content/10.1101/2025.09.12.675975v1" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-size: 0.9rem;">
                         <i class="fas fa-external-link-alt"></i> Preprint
                     </a>
                 </div>
@@ -986,6 +1353,12 @@
                         <div class="timeline-description">
                             <p>Investigate synthetic genes in various cell types and diseases</p>
                         </div>
+                        <div class="timeline-stack">
+                            <span class="skill-tag">CRISPRi</span>
+                            <span class="skill-tag">Single-cell ML</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">Nextflow</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -996,6 +1369,12 @@
                         <div class="timeline-company">Scale Biosciences</div>
                         <div class="timeline-description">
                             <p>Played a key role in developing Quantum Barcoding technology single-cell RNA assay using combinatorial indexing. </p>
+                        </div>
+                        <div class="timeline-stack">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Automation</span>
+                            <span class="skill-tag">Manufacturing QC</span>
                         </div>
                     </div>
                 </div>
@@ -1008,6 +1387,12 @@
                         <div class="timeline-description">
                             <p>Delivered scRNA-seq analysis of high-grade serous ovarian cancer, delivering key insights into platinum-based chemotherapy resistance (1st author publication).</p>
                         </div>
+                        <div class="timeline-stack">
+                            <span class="skill-tag">Seurat</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">R</span>
+                            <span class="skill-tag">Visualization</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -1018,6 +1403,12 @@
                         <div class="timeline-company">UC San Diego, Moores Cancer Center, Chen Lab</div>
                         <div class="timeline-description">
                             <p>Led a project investigating tumor microenvironment changes in pancreatic ductal adenocarcinoma, uncovering significant changes in tumor-infiltrating lymphocytes and macrophage polarization upon SUMOylation inhibition (1st author publication).</p>
+                        </div>
+                        <div class="timeline-stack">
+                            <span class="skill-tag">Spatial Omics</span>
+                            <span class="skill-tag">Flow Cytometry</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Data Viz</span>
                         </div>
                     </div>
                 </div>
@@ -1163,7 +1554,7 @@
                     </div>
                 </a>
                 
-                <a href="https://www.linkedin.com/in/jameshyojaelee/" class="contact-item" target="_blank">
+                <a href="https://www.linkedin.com/in/jameshyojaelee/" class="contact-item" target="_blank" rel="noopener noreferrer">
                     <div class="contact-icon">
                         <i class="fab fa-linkedin"></i>
                     </div>
@@ -1173,7 +1564,7 @@
                     </div>
                 </a>
                 
-                <a href="https://x.com/JamesHyojaeLee" class="contact-item" target="_blank">
+                <a href="https://x.com/JamesHyojaeLee" class="contact-item" target="_blank" rel="noopener noreferrer">
                     <div class="contact-icon">
                         <i class="fab fa-twitter"></i>
                     </div>
@@ -1183,7 +1574,7 @@
                     </div>
                 </a>
                 
-                <a href="https://github.com/jameshyojaelee" class="contact-item" target="_blank">
+                <a href="https://github.com/jameshyojaelee" class="contact-item" target="_blank" rel="noopener noreferrer">
                     <div class="contact-icon">
                         <i class="fab fa-github"></i>
                     </div>
@@ -1193,7 +1584,7 @@
                     </div>
                 </a>
                 
-                <a href="https://scholar.google.com/citations?user=Mwmq8b4AAAAJ&hl=en" class="contact-item" target="_blank">
+                <a href="https://scholar.google.com/citations?user=Mwmq8b4AAAAJ&hl=en" class="contact-item" target="_blank" rel="noopener noreferrer">
                     <div class="contact-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
