@@ -1089,11 +1089,11 @@
                     <div class="card-content">
                         <div class="project-header">
                             <h3>🧬 scPerturb-CMap</h3>
-                            <p class="project-description">Python toolkit that maps single-cell perturbations to Connectivity Map responses to prioritize therapeutics.</p>
+                            <p class="project-description">Python toolkit for linking single-cell CRISPR screens to large drug-response datasets (Connectivity Map) to suggest drug repurposing strategies.</p>
                         </div>
                         <ul class="project-meta">
-                            <li><i class="fas fa-code"></i><span>Contrastive autoencoders align CRISPR and drug screens across 50k+ cells per batch.</span></li>
-                            <li><i class="fas fa-robot"></i><span>FastAPI inference API surfaces top compounds per phenotype in real time.</span></li>
+                            <li><i class="fas fa-code"></i><span>Uses deep learning to compare gene-editing and drug screens across tens of thousands of single cells.</span></li>
+                            <li><i class="fas fa-robot"></i><span>Includes a FastAPI service so you can send an expression profile and get back a ranked list of compounds.</span></li>
                         </ul>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
@@ -1112,11 +1112,11 @@
                     <div class="card-content">
                         <div class="project-header">
                             <h3>🧠 GPT-cell-annotator</h3>
-                            <p class="project-description">Desktop app that lets scientists plug in GPT APIs to automatically annotate single-cell clusters.</p>
+                            <p class="project-description">Desktop app that uses GPT-style models to suggest labels for single-cell clusters.</p>
                         </div>
                         <ul class="project-meta">
-                            <li><i class="fas fa-brain"></i><span>LLM prompts are dynamically built from marker genes, QC summaries, and ontology priors.</span></li>
-                            <li><i class="fas fa-laptop-code"></i><span>Electron + React front-end streams annotations while Python workers update AnnData objects.</span></li>
+                            <li><i class="fas fa-brain"></i><span>Builds prompts from marker genes, QC summaries, and ontology terms so the model sees the same context a human annotator would.</span></li>
+                            <li><i class="fas fa-laptop-code"></i><span>Electron/React interface on top of a Python backend that writes annotations directly into your AnnData object.</span></li>
                         </ul>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
@@ -1135,11 +1135,11 @@
                     <div class="card-content">
                         <div class="project-header">
                             <h3>🧬 CRISPR-studio</h3>
-                            <p class="project-description">Browser-based CRISPR screen analyzer for designing guide libraries, QC, and rapid visualization.</p>
+                            <p class="project-description">Web app for exploring CRISPR screen results, from guide design through QC and visualization.</p>
                         </div>
                         <ul class="project-meta">
-                            <li><i class="fas fa-dna"></i><span>Interactive D3 plots flag dropouts, copy-number artifacts, and essential gene trends.</span></li>
-                            <li><i class="fas fa-server"></i><span>Rust-backed scoring engine streams normalized counts into the React UI.</span></li>
+                            <li><i class="fas fa-dna"></i><span>Interactive plots help you spot dropouts, copy-number issues, and essential genes quickly.</span></li>
+                            <li><i class="fas fa-server"></i><span>Rust backend scores guides and streams results into a TypeScript/React dashboard.</span></li>
                         </ul>
                         <div class="project-tags">
                             <span class="project-tag">TypeScript</span>
@@ -1157,11 +1157,11 @@
                     <div class="card-content">
                         <div class="project-header">
                             <h3>📱 Smart Cell Counter</h3>
-                            <p class="project-description">iOS TensorFlow Lite app that counts hemocytometer cells, estimates viability, and exports reports.</p>
+                            <p class="project-description">iOS app that counts cells on a hemocytometer, estimates viability, and exports simple reports.</p>
                         </div>
                         <ul class="project-meta">
-                            <li><i class="fas fa-microscope"></i><span>On-device CNN segments cells offline for HIPAA-safe environments.</span></li>
-                            <li><i class="fas fa-file-export"></i><span>Automated PDF generator produces logs.</span></li>
+                            <li><i class="fas fa-microscope"></i><span>Runs the cell-detection model entirely on the device, so images stay offline.</span></li>
+                            <li><i class="fas fa-file-export"></i><span>Generates PDF summaries you can attach to lab notebooks or LIMS records.</span></li>
                         </ul>
                         <div class="project-tags">
                             <span class="project-tag">Swift</span>
@@ -1178,11 +1178,11 @@
                     <div class="card-content">
                         <div class="project-header">
                             <h3>🧬 scImmuneATLAS</h3>
-                            <p class="project-description">Unified tumor-infiltrating lymphocyte atlas with batch correction, harmonized metadata, and ready annotations.</p>
+                            <p class="project-description">Merged atlas of tumor-infiltrating immune cells, cleaned and annotated so you can start analysis instead of preprocessing.</p>
                         </div>
                         <ul class="project-meta">
-                            <li><i class="fas fa-layer-group"></i><span>Integrates 20+ datasets with Harmony and SCTransform pipelines.</span></li>
-                            <li><i class="fas fa-share-alt"></i><span>Ships as ready-to-query Seurat/AnnData objects and Hugging Face datasets.</span></li>
+                            <li><i class="fas fa-layer-group"></i><span>Combines over 20 public datasets using Harmony/SCTransform workflows to reduce batch effects.</span></li>
+                            <li><i class="fas fa-share-alt"></i><span>Distributed as Seurat and AnnData objects (and Hugging Face datasets) that drop into existing pipelines.</span></li>
                         </ul>
                         <div class="project-tags">
                             <span class="project-tag">R</span>
@@ -1210,11 +1210,11 @@
                     <div class="card-content">
                         <div class="project-header">
                             <h3>🧬 OmniSpatial</h3>
-                            <p class="project-description">Cross-vendor spatial omics toolkit that converts imaging assays into NGFF/SpatialData bundles with a Next.js viewer.</p>
+                            <p class="project-description">Toolkit for turning spatial omics data from different platforms into a single, browsable format.</p>
                         </div>
                         <ul class="project-meta">
-                            <li><i class="fas fa-map-marked-alt"></i><span>CLI ingests Visium, CosMx, and MIBI exports into Zarr-backed SpatialData.</span></li>
-                            <li><i class="fas fa-cloud-upload-alt"></i><span>Dockerized deployment streams tiled imagery via WebGL overlays.</span></li>
+                            <li><i class="fas fa-map-marked-alt"></i><span>Command-line tools convert Visium, CosMx, MIBI and similar exports into Zarr-based SpatialData/NGFF files.</span></li>
+                            <li><i class="fas fa-cloud-upload-alt"></i><span>Ships with a Dockerized Next.js viewer that serves tiled images and overlays in the browser.</span></li>
                         </ul>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
