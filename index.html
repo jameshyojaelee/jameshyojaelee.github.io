@@ -52,6 +52,65 @@
             overflow-x: hidden;
         }
 
+        /* Micro-interactions */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 0;
+            background: var(--gradient-primary);
+            z-index: 1200;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+            transition: width 0.08s ease-out;
+            pointer-events: none;
+        }
+
+        .section-indicator {
+            position: fixed;
+            right: 2rem;
+            bottom: 2rem;
+            padding: 0.85rem 1.1rem;
+            background: rgba(26, 26, 26, 0.85);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            box-shadow: var(--shadow-card);
+            backdrop-filter: blur(12px);
+            z-index: 1100;
+            opacity: 0;
+            transform: translate3d(0, 10px, 0);
+            transition: all 0.3s ease;
+        }
+
+        .section-indicator.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            box-shadow: 0 0 16px rgba(0, 255, 136, 0.4);
+            animation: pulse 1.8s infinite;
+        }
+
+        .indicator-label {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
         /* Animated Background */
         body::before {
             content: '';
@@ -162,6 +221,91 @@
             width: 100%;
         }
 
+        .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Ping markers and quick peeks */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 1.2rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            border: 2px solid var(--primary-color);
+            transform: translate(-50%, -50%) scale(0.9);
+            opacity: 0.45;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0 0 rgba(0, 255, 136, 0);
+            z-index: 3;
+        }
+
+        .timeline-item.in-view::after {
+            opacity: 1;
+            animation: orbPing 1.8s infinite;
+        }
+
+        .project-peek {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.08), transparent 55%), rgba(10, 10, 10, 0.85);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 0.6rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.35s ease;
+            visibility: hidden;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .project-card:hover .project-peek,
+        .project-card:focus-within .project-peek,
+        .project-card:active .project-peek {
+            opacity: 1;
+            transform: translateY(0);
+            backdrop-filter: blur(6px);
+            visibility: visible;
+        }
+
+        .peek-title {
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .peek-text {
+            color: var(--text-primary);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .peek-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .peek-tag {
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(31, 31, 31, 0.8);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-size: 0.85rem;
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -171,6 +315,21 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+        }
+
+        .hero-parallax {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .parallax-orb {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+            filter: blur(1px);
+            transition: transform 0.25s ease-out;
         }
 
         .hero-content {
@@ -325,6 +484,12 @@
             overflow: hidden;
         }
 
+        .social-link,
+        .contact-item {
+            position: relative;
+            overflow: hidden;
+        }
+
         .btn-primary {
             background: var(--gradient-primary);
             color: var(--bg-primary);
@@ -344,6 +509,20 @@
         .btn-secondary:hover {
             background: var(--primary-color);
             color: var(--bg-primary);
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.4) 0%, rgba(255, 0, 128, 0.1) 60%, rgba(0, 0, 0, 0) 80%);
+            pointer-events: none;
+            animation: rippleAnim 0.75s ease-out;
+        }
+
+        @keyframes rippleAnim {
+            from { transform: translate(-50%, -50%) scale(0); opacity: 0.45; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 0; }
         }
 
         /* Social Links */
@@ -433,8 +612,23 @@
             z-index: 1;
         }
 
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 255, 136, 0.16), transparent 45%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+
         .card:hover::before {
             opacity: 0.1;
+        }
+
+        .card:hover::after {
+            opacity: 1;
         }
 
         .card:hover {
@@ -898,6 +1092,12 @@
             to { opacity: 1; }
         }
 
+        @keyframes orbPing {
+            0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.45); }
+            70% { box-shadow: 0 0 0 12px rgba(0, 255, 136, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+        }
+
         .animate-on-scroll {
             opacity: 0;
             transition: all 0.8s ease;
@@ -912,6 +1112,16 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+            }
+            
+            .section-indicator {
+                right: 50%;
+                transform: translate3d(50%, 10px, 0);
+                bottom: 1.5rem;
+            }
+            
+            .section-indicator.visible {
+                transform: translate3d(50%, 0, 0);
             }
 
             .hero-highlights {
@@ -985,6 +1195,7 @@
     </style>
 </head>
 <body>
+    <div class="scroll-progress" id="scroll-progress"></div>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -1005,6 +1216,7 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <div class="hero-parallax" id="hero-parallax"></div>
         <div class="hero-content">
             <div class="hero-subtitle">&gt; >welcome to my personal website!</div>
             <div class="hero-avatar">
@@ -1105,6 +1317,14 @@
                             <a href="#contact" class="project-link">Request Demo</a>
                         </div>
                     </div>
+                    <div class="project-peek">
+                        <div class="peek-title">Quick peek</div>
+                        <p class="peek-text">See drug links suggested for any single-cell profile you drop in.</p>
+                        <div class="peek-tags">
+                            <span class="peek-tag">Deep learning</span>
+                            <span class="peek-tag">Drug repurposing</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card project-card featured">
@@ -1126,6 +1346,14 @@
                         <div class="project-actions">
                             <a href="https://github.com/jameshyojaelee/GPT-cell-annotator" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
                             <a href="#contact" class="project-link">Request Demo</a>
+                        </div>
+                    </div>
+                    <div class="project-peek">
+                        <div class="peek-title">Quick peek</div>
+                        <p class="peek-text">Live prompts combine marker genes, QC, and ontology hints while you label clusters.</p>
+                        <div class="peek-tags">
+                            <span class="peek-tag">LLM</span>
+                            <span class="peek-tag">Electron</span>
                         </div>
                     </div>
                 </div>
@@ -1150,6 +1378,14 @@
                             <a href="https://github.com/jameshyojaelee/CRISPR-studio" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
                         </div>
                     </div>
+                    <div class="project-peek">
+                        <div class="peek-title">Quick peek</div>
+                        <p class="peek-text">Inspect dropout curves, copy-number calls, and gene hits in one streaming panel.</p>
+                        <div class="peek-tags">
+                            <span class="peek-tag">Rust backend</span>
+                            <span class="peek-tag">React UI</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="card project-card">
@@ -1169,6 +1405,14 @@
                         </div>
                         <div class="project-actions">
                             <a href="https://github.com/jameshyojaelee/smart-cell-counter" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                        </div>
+                    </div>
+                    <div class="project-peek">
+                        <div class="peek-title">Quick peek</div>
+                        <p class="peek-text">On-device detection with instant viability math and PDF exports for your lab notes.</p>
+                        <div class="peek-tags">
+                            <span class="peek-tag">iOS</span>
+                            <span class="peek-tag">CoreML</span>
                         </div>
                     </div>
                 </div>
@@ -1203,6 +1447,14 @@
                             <a href="https://github.com/jameshyojaelee/scImmuneATLAS" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
                         </div>
                     </div>
+                    <div class="project-peek">
+                        <div class="peek-title">Quick peek</div>
+                        <p class="peek-text">Jump straight into pre-annotated immune states across 1.2M cells—no preprocessing.</p>
+                        <div class="peek-tags">
+                            <span class="peek-tag">Atlas</span>
+                            <span class="peek-tag">Batch correction</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="card project-card">
@@ -1233,6 +1485,14 @@
                         </div>
                         <div class="project-actions">
                             <a href="https://github.com/jameshyojaelee/OmniSpatial" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                        </div>
+                    </div>
+                    <div class="project-peek">
+                        <div class="peek-title">Quick peek</div>
+                        <p class="peek-text">Tile and serve spatial layers in a NGFF viewer with dockerized Next.js.</p>
+                        <div class="peek-tags">
+                            <span class="peek-tag">SpatialData</span>
+                            <span class="peek-tag">Next.js</span>
                         </div>
                     </div>
                 </div>
@@ -1575,6 +1835,11 @@
         </div>
     </section>
 
+    <div class="section-indicator" id="section-indicator">
+        <div class="indicator-dot"></div>
+        <div class="indicator-label">Home</div>
+    </div>
+
     <!-- CV Modal -->
     <div id="cvModal" class="modal">
         <div class="modal-content">
@@ -1657,6 +1922,169 @@
                 item.style.animationDelay = index * 0.2 + 's';
             });
         }
+        
+        // Scroll progress, section indicator, and nav highlighting
+        function initScrollSignals() {
+            const progressBar = document.getElementById('scroll-progress');
+            const indicator = document.getElementById('section-indicator');
+            const indicatorLabel = indicator?.querySelector('.indicator-label');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const sections = document.querySelectorAll('section');
+            const sectionLabels = {
+                home: 'Home',
+                about: 'About',
+                projects: 'Projects',
+                publications: 'Publications',
+                experience: 'Experience',
+                contact: 'Contact'
+            };
+
+            const setActiveNav = (sectionId) => {
+                navLinks.forEach(link => {
+                    const targetId = link.getAttribute('href').replace('#', '');
+                    link.classList.toggle('active', targetId === sectionId);
+                });
+            };
+
+            const updateIndicator = (sectionId, labelText) => {
+                if (!indicator || !indicatorLabel) return;
+                indicatorLabel.textContent = labelText || sectionId;
+                indicator.classList.add('visible');
+            };
+
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const sectionId = entry.target.id;
+                        const title = entry.target.querySelector('.section-title');
+                        setActiveNav(sectionId);
+                        const label = sectionLabels[sectionId] || (title ? title.textContent : sectionId);
+                        updateIndicator(sectionId, label);
+                    }
+                });
+            }, { threshold: 0.45 });
+
+            sections.forEach(section => sectionObserver.observe(section));
+
+            const updateProgress = () => {
+                if (!progressBar) return;
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                progressBar.style.width = `${Math.min(progress, 100)}%`;
+            };
+
+            window.addEventListener('scroll', updateProgress);
+            updateProgress();
+        }
+
+        // Pointer-tracked glow on cards
+        function attachCardSpotlight() {
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('mousemove', (event) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = ((event.clientX - rect.left) / rect.width) * 100;
+                    const y = ((event.clientY - rect.top) / rect.height) * 100;
+                    card.style.setProperty('--mouse-x', `${x}%`);
+                    card.style.setProperty('--mouse-y', `${y}%`);
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.removeProperty('--mouse-x');
+                    card.style.removeProperty('--mouse-y');
+                });
+            });
+        }
+
+        // Ping markers for timeline and projects
+        function initPingMarkers() {
+            const pingObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    entry.target.classList.toggle('in-view', entry.isIntersecting);
+                });
+            }, { threshold: 0.35 });
+
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                pingObserver.observe(item);
+            });
+        }
+
+        // Hero parallax particles
+        function initHeroParallax() {
+            const hero = document.querySelector('.hero');
+            const container = document.getElementById('hero-parallax');
+            if (!hero || !container) return;
+
+            const colors = [
+                'rgba(0, 255, 136, 0.34)',
+                'rgba(255, 0, 128, 0.26)',
+                'rgba(0, 128, 255, 0.26)'
+            ];
+
+            const orbs = [];
+            const orbCount = 9;
+
+            for (let i = 0; i < orbCount; i++) {
+                const orb = document.createElement('div');
+                orb.className = 'parallax-orb';
+                const size = Math.random() * 130 + 110;
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+                orb.style.left = `${Math.random() * 80 + 10}%`;
+                orb.style.top = `${Math.random() * 70 + 10}%`;
+                const base = colors[i % colors.length];
+                const edge = base.replace('0.', '0.04').replace('1)', '1)'); /* fallback if no match still okay */
+                orb.style.background = `radial-gradient(circle at 32% 32%, ${base} 0%, rgba(0,0,0,0) 70%)`;
+                orb.dataset.speed = (Math.random() * 12 + 4).toFixed(1);
+                container.appendChild(orb);
+                orbs.push(orb);
+            }
+
+            const moveOrbs = (xRatio, yRatio) => {
+                orbs.forEach(orb => {
+                    const speed = parseFloat(orb.dataset.speed);
+                    const tx = (xRatio - 0.5) * speed;
+                    const ty = (yRatio - 0.5) * speed;
+                    orb.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
+                });
+            };
+
+            hero.addEventListener('mousemove', (event) => {
+                const rect = hero.getBoundingClientRect();
+                const xRatio = (event.clientX - rect.left) / rect.width;
+                const yRatio = (event.clientY - rect.top) / rect.height;
+                moveOrbs(xRatio, yRatio);
+            });
+
+            hero.addEventListener('mouseleave', () => moveOrbs(0.5, 0.5));
+
+            window.addEventListener('scroll', () => {
+                const rect = hero.getBoundingClientRect();
+                const yRatio = Math.min(Math.max((0 - rect.top) / rect.height, 0), 1);
+                moveOrbs(0.5, yRatio);
+            });
+        }
+
+        // Micro-haptic ripples on buttons and links
+        function initRipples() {
+            const rippleTargets = document.querySelectorAll('.btn, .social-link, .contact-item');
+            
+            rippleTargets.forEach(target => {
+                target.addEventListener('click', (event) => {
+                    const rect = target.getBoundingClientRect();
+                    const ripple = document.createElement('span');
+                    ripple.className = 'ripple';
+                    const size = Math.max(rect.width, rect.height) * 1.6;
+                    const x = event.clientX - rect.left;
+                    const y = event.clientY - rect.top;
+                    ripple.style.width = ripple.style.height = `${size}px`;
+                    ripple.style.left = `${x}px`;
+                    ripple.style.top = `${y}px`;
+                    target.appendChild(ripple);
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+        }
 
         // Modal functions
         function openCVModal() {
@@ -1679,6 +2107,11 @@
         document.addEventListener('DOMContentLoaded', () => {
             createFloatingElements();
             animateTimeline();
+            initScrollSignals();
+            attachCardSpotlight();
+            initPingMarkers();
+            initHeroParallax();
+            initRipples();
         });
 
         // Typing effect for hero subtitle
