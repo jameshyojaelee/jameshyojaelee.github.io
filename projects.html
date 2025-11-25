@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ED44XKSJCT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ED44XKSJCT');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | James Lee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #00ff88;
+            --secondary-color: #ff0080;
+            --accent-color: #0080ff;
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #1f1f1f;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #666666;
+            --border-color: #333333;
+            --gradient-primary: linear-gradient(135deg, #00ff88 0%, #0080ff 100%);
+            --gradient-secondary: linear-gradient(135deg, #ff0080 0%, #00ff88 100%);
+            --shadow-glow: 0 0 30px rgba(0, 255, 136, 0.3);
+            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 128, 255, 0.1) 0%, transparent 50%);
+            z-index: -2;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 0;
+            background: var(--gradient-primary);
+            z-index: 1200;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+            transition: width 0.08s ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            33% { transform: translateX(-20px) translateY(-10px); }
+            66% { transform: translateX(20px) translateY(10px); }
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+        ::-webkit-scrollbar-thumb { background: var(--gradient-primary); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gradient-secondary); }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar.scrolled {
+            background: rgba(26, 26, 26, 0.95);
+            box-shadow: var(--shadow-card);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links { display: flex; list-style: none; gap: 1.5rem; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a.active { color: var(--text-primary); }
+
+        .floating-elements {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .floating-element {
+            position: absolute;
+            width: 4px; height: 4px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 6rem;
+        }
+        .hero-parallax { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+        .parallax-orb {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+            filter: blur(1px);
+            transition: transform 0.25s ease-out;
+        }
+        .hero-content { z-index: 2; max-width: 820px; padding: 2rem; }
+        .hero-subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary-color);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-description { font-size: 1.2rem; color: var(--text-secondary); }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-primary { background: var(--gradient-primary); color: var(--bg-primary); }
+        .btn-secondary { background: transparent; color: var(--text-primary); border: 2px solid var(--primary-color); }
+        .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+        .btn-secondary:hover { background: var(--primary-color); color: var(--bg-primary); }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.4) 0%, rgba(255, 0, 128, 0.1) 60%, rgba(0, 0, 0, 0) 80%);
+            pointer-events: none;
+            animation: rippleAnim 0.75s ease-out;
+        }
+        @keyframes rippleAnim {
+            from { transform: translate(-50%, -50%) scale(0); opacity: 0.45; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+        }
+
+        .section { padding: 6rem 0; position: relative; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-subtitle { font-size: 1.05rem; color: var(--text-secondary); max-width: 640px; margin: 0 auto; }
+
+        .projects-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        }
+        .card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 1.75rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 255, 136, 0.16), transparent 45%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .card:hover::before { opacity: 0.08; }
+        .card:hover::after { opacity: 1; }
+        .card:hover { transform: translateY(-10px); box-shadow: var(--shadow-card); border-color: var(--primary-color); }
+        .card-content { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 1rem; height: 100%; }
+        .project-header h3 { color: var(--primary-color); margin-bottom: 0.4rem; font-size: 1.2rem; }
+        .project-description { color: var(--text-secondary); }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .project-tag {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 999px;
+            padding: 0.35rem 0.9rem;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+        .project-actions { margin-top: auto; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+        .project-link {
+            padding: 0.7rem 1.35rem;
+            border-radius: 999px;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .project-link.primary { background: var(--gradient-primary); color: var(--bg-primary); border: none; }
+        .project-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+
+        .project-peek {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.08), transparent 55%), rgba(10, 10, 10, 0.85);
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 0.6rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.35s ease;
+            visibility: hidden;
+            pointer-events: none;
+            z-index: 3;
+        }
+        .card:hover .project-peek,
+        .card:focus-within .project-peek,
+        .card:active .project-peek {
+            opacity: 1;
+            transform: translateY(0);
+            backdrop-filter: blur(6px);
+            visibility: visible;
+        }
+        .peek-title { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text-secondary); }
+        .peek-text { color: var(--text-primary); font-weight: 600; line-height: 1.4; }
+        .peek-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+        .peek-tag {
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(31, 31, 31, 0.8);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-size: 0.85rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .info-pill {
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+        }
+        .info-pill strong { color: var(--text-primary); }
+
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes orbPing { 0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.45); } 70% { box-shadow: 0 0 0 12px rgba(0, 255, 136, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); } }
+        .animate-on-scroll { opacity: 0; transition: all 0.8s ease; }
+        .animate-on-scroll.animated { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero { padding-top: 6.5rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">JL</div>
+            <ul class="nav-links">
+                <li><a href="/" >Home</a></li>
+                <li><a href="/#projects">Featured</a></li>
+                <li><a href="/projects" class="active">Projects</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="floating-elements" id="floating-elements"></div>
+
+    <section class="hero">
+        <div class="hero-parallax" id="hero-parallax"></div>
+        <div class="hero-content">
+            <div class="hero-subtitle">&gt; complete project list</div>
+            <h1 class="hero-title">Builds for Scientists & Engineers</h1>
+            <p class="hero-description">A closer look at the tools, platforms, and experiments I ship—spanning single-cell analytics, spatial omics, CRISPR screening, and intelligent assistants.</p>
+            <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="/#contact" class="btn btn-primary">Request a demo</a>
+                <a href="/" class="btn btn-secondary">Back to home</a>
+            </div>
+            <div class="info-grid" style="margin-top: 1.5rem;">
+                <div class="info-pill"><strong>9</strong> projects spanning wet lab to cloud</div>
+                <div class="info-pill"><strong>4</strong> productionized dashboards & APIs</div>
+                <div class="info-pill"><strong>1.2M+</strong> cells indexed across atlases</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Project Portfolio</h2>
+                <p class="section-subtitle">Each card links to code, demos, or datasets. Hover for a peek; tap on mobile.</p>
+            </div>
+
+            <div class="projects-grid animate-on-scroll">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="project-header">
+                            <h3>🧬 scPerturb-CMap</h3>
+                            <p class="project-description">Python toolkit linking single-cell CRISPR screens to Connectivity Map drug responses for repurposing hypotheses.</p>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">PyTorch</span>
+                            <span class="project-tag">AnnData</span>
+                            <span class="project-tag">FastAPI</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/jameshyojaelee/scPerturb-CMap" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                            <a href="/#contact" class="project-link">Request Demo</a>
+                        </div>
+                    </div>
+                    <div class="project-peek">
+                        <div class="peek-title">Quick peek</div>
+                        <p class="peek-text">Upload a CRISPR expression profile, get ranked compound suggestions with similarity maps.</p>
+                        <div class="peek-tags">
+                            <span class="peek-tag">Deep learning</span>
+                            <span class="peek-tag">Drug repurposing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="project-header">
+                            <h3>🧠 GPT-cell-annotator</h3>
+                            <p class="project-description">LLM assistant that annotates single-cell clusters using marker genes, QC summaries, and ontology cues.</p>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Electron</span>
+                            <span class="project-tag">OpenAI API</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/jameshyojaelee/GPT-cell-annotator" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                            <a href="/#contact" class="project-link">Request Demo</a>
+                        </div>
+                    </div>
+                    <div class="project-peek">
+                        <div class="peek-title">Quick peek</div>
+                        <p class="peek-text">Prompt builder fuses markers and metadata; annotations write back into your AnnData.</p>
+                        <div class="peek-tags">
+                            <span class="peek-tag">LLM</span>
+                            <span class="peek-tag">UI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="project-header">
+                            <h3>🧬 CRISPR-studio</h3>
+                            <p class="project-description">Web app for CRISPR screen QC and visualization with streaming metrics and guide scoring.</p>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">TypeScript</span>
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Rust</span>
+                            <span class="project-tag">D3.js</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/jameshyojaelee/CRISPR-studio" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                        </div>
+                    </div>
+                    <div class="project-peek">
+                        <div class="peek-title">Quick peek</div>
+                        <p class="peek-text">Check dropout curves, CNV noise, and hit calling in one streaming dashboard.</p>
+                        <div class="peek-tags">
+                            <span class="peek-tag">Rust backend</span>
+                            <span class="peek-tag">Data viz</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="project-header">
+                            <h3>📱 Smart Cell Counter</h3>
+                            <p class="project-description">iOS app that counts cells, estimates viability, and exports PDF summaries entirely on-device.</p>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Swift</span>
+                            <span class="project-tag">TensorFlow Lite</span>
+                            <span class="project-tag">CoreML</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/jameshyojaelee/smart-cell-counter" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                        </div>
+                    </div>
+                    <div class="project-peek">
+                        <div class="peek-title">Quick peek</div>
+                        <p class="peek-text">On-device inference keeps images offline; single tap exports reports for LIMS.</p>
+                        <div class="peek-tags">
+                            <span class="peek-tag">Mobile</span>
+                            <span class="peek-tag">Edge ML</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="project-header">
+                            <h3>🧬 scImmuneATLAS</h3>
+                            <p class="project-description">Integrated atlas of tumor-infiltrating immune cells with harmonized annotations and batch correction.</p>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">R</span>
+                            <span class="project-tag">Seurat</span>
+                            <span class="project-tag">Scanpy</span>
+                            <span class="project-tag">h5ad</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/jameshyojaelee/scImmuneATLAS" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                        </div>
+                    </div>
+                    <div class="project-peek">
+                        <div class="peek-title">Quick peek</div>
+                        <p class="peek-text">1.2M cells, 35 immune states, distributed as Seurat and AnnData objects.</p>
+                        <div class="peek-tags">
+                            <span class="peek-tag">Atlas</span>
+                            <span class="peek-tag">Batch correction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="project-header">
+                            <h3>🧬 OmniSpatial</h3>
+                            <p class="project-description">Toolkit to convert spatial omics formats into NGFF/SpatialData and serve tiled overlays via Next.js.</p>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">SpatialData</span>
+                            <span class="project-tag">Next.js</span>
+                            <span class="project-tag">Docker</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/jameshyojaelee/OmniSpatial" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                        </div>
+                    </div>
+                    <div class="project-peek">
+                        <div class="peek-title">Quick peek</div>
+                        <p class="peek-text">Harmonize Visium/CosMx/MIBI exports and tile them for browser overlays.</p>
+                        <div class="peek-tags">
+                            <span class="peek-tag">Spatial</span>
+                            <span class="peek-tag">NGFF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="project-header">
+                            <h3>🧪 Quantum Barcoding Tools</h3>
+                            <p class="project-description">Automation scripts and QC dashboards supporting combinatorial indexing assays for single-cell RNA.</p>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Automation</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Dashboards</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="/#contact" class="project-link primary">Discuss</a>
+                        </div>
+                    </div>
+                    <div class="project-peek">
+                        <div class="peek-title">Quick peek</div>
+                        <p class="peek-text">Robot-friendly barcoding designs with live QC heatmaps and throughput metrics.</p>
+                        <div class="peek-tags">
+                            <span class="peek-tag">QC</span>
+                            <span class="peek-tag">Lab automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="project-header">
+                            <h3>📊 Single-cell Insights CLI</h3>
+                            <p class="project-description">CLI that wraps common single-cell workflows with reproducible configs and report exports.</p>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">CLI</span>
+                            <span class="project-tag">Nextflow</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="/#contact" class="project-link primary">Request Access</a>
+                        </div>
+                    </div>
+                    <div class="project-peek">
+                        <div class="peek-title">Quick peek</div>
+                        <p class="peek-text">Config-driven analysis for clusters, markers, and embeddings; exports PDFs for collaborators.</p>
+                        <div class="peek-tags">
+                            <span class="peek-tag">Pipelines</span>
+                            <span class="peek-tag">Reports</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding-bottom: 8rem;">
+        <div class="container">
+            <div class="card animate-on-scroll" style="text-align: center;">
+                <div class="card-content">
+                    <h3 style="color: var(--primary-color); margin-bottom: 0.6rem;">Need a walkthrough?</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">Happy to demo datasets, APIs, or dashboards and tailor them to your use case.</p>
+                    <div style="display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
+                        <a href="/#contact" class="btn btn-primary">Schedule a chat</a>
+                        <a href="/" class="btn btn-secondary">Back to home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Scroll progress
+        function initScrollProgress() {
+            const bar = document.getElementById('scroll-progress');
+            const update = () => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                bar.style.width = `${Math.min(progress, 100)}%`;
+            };
+            window.addEventListener('scroll', update);
+            update();
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // Animate on scroll
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('animated');
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        }
+
+        // Card spotlight
+        function attachCardSpotlight() {
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('mousemove', (event) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = ((event.clientX - rect.left) / rect.width) * 100;
+                    const y = ((event.clientY - rect.top) / rect.height) * 100;
+                    card.style.setProperty('--mouse-x', `${x}%`);
+                    card.style.setProperty('--mouse-y', `${y}%`);
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.removeProperty('--mouse-x');
+                    card.style.removeProperty('--mouse-y');
+                });
+            });
+        }
+
+        // Floating elements animation
+        function createFloatingElements() {
+            const container = document.getElementById('floating-elements');
+            setInterval(() => {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                element.style.left = Math.random() * 100 + '%';
+                element.style.animationDelay = Math.random() * 2 + 's';
+                element.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                container.appendChild(element);
+                setTimeout(() => element.remove(), 25000);
+            }, 3000);
+        }
+
+        // Hero parallax particles
+        function initHeroParallax() {
+            const hero = document.querySelector('.hero');
+            const container = document.getElementById('hero-parallax');
+            if (!hero || !container) return;
+
+            const colors = [
+                'rgba(0, 255, 136, 0.34)',
+                'rgba(255, 0, 128, 0.26)',
+                'rgba(0, 128, 255, 0.26)'
+            ];
+
+            const orbs = [];
+            const orbCount = 8;
+
+            for (let i = 0; i < orbCount; i++) {
+                const orb = document.createElement('div');
+                orb.className = 'parallax-orb';
+                const size = Math.random() * 130 + 110;
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+                orb.style.left = `${Math.random() * 80 + 10}%`;
+                orb.style.top = `${Math.random() * 70 + 10}%`;
+                orb.style.background = `radial-gradient(circle at 32% 32%, ${colors[i % colors.length]} 0%, rgba(0,0,0,0) 70%)`;
+                orb.dataset.speed = (Math.random() * 12 + 4).toFixed(1);
+                container.appendChild(orb);
+                orbs.push(orb);
+            }
+
+            const moveOrbs = (xRatio, yRatio) => {
+                orbs.forEach(orb => {
+                    const speed = parseFloat(orb.dataset.speed);
+                    const tx = (xRatio - 0.5) * speed;
+                    const ty = (yRatio - 0.5) * speed;
+                    orb.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
+                });
+            };
+
+            hero.addEventListener('mousemove', (event) => {
+                const rect = hero.getBoundingClientRect();
+                const xRatio = (event.clientX - rect.left) / rect.width;
+                const yRatio = (event.clientY - rect.top) / rect.height;
+                moveOrbs(xRatio, yRatio);
+            });
+
+            hero.addEventListener('mouseleave', () => moveOrbs(0.5, 0.5));
+            window.addEventListener('scroll', () => {
+                const rect = hero.getBoundingClientRect();
+                const yRatio = Math.min(Math.max((0 - rect.top) / rect.height, 0), 1);
+                moveOrbs(0.5, yRatio);
+            });
+        }
+
+        // Ripples
+        function initRipples() {
+            const rippleTargets = document.querySelectorAll('.btn, .project-link');
+            rippleTargets.forEach(target => {
+                target.addEventListener('click', (event) => {
+                    const rect = target.getBoundingClientRect();
+                    const ripple = document.createElement('span');
+                    ripple.className = 'ripple';
+                    const size = Math.max(rect.width, rect.height) * 1.6;
+                    const x = event.clientX - rect.left;
+                    const y = event.clientY - rect.top;
+                    ripple.style.width = ripple.style.height = `${size}px`;
+                    ripple.style.left = `${x}px`;
+                    ripple.style.top = `${y}px`;
+                    target.appendChild(ripple);
+                    setTimeout(() => ripple.remove(), 750);
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initScrollProgress();
+            initScrollAnimations();
+            attachCardSpotlight();
+            createFloatingElements();
+            initHeroParallax();
+            initRipples();
+        });
+    </script>
+</body>
+</html>
