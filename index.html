@@ -2227,7 +2227,11 @@
                 scrollRatio = Math.min(Math.max((0 - rect.top) / rect.height, 0), 1);
             });
 
+            let startTime = null;
             const animate = (time) => {
+                if (startTime === null) startTime = time;
+                const intro = Math.min(1, (time - startTime) / 1200);
+
                 smooth.x += (cursor.x - smooth.x) * 0.005;
                 smooth.y += (cursor.y - smooth.y) * 0.005;
 
@@ -2244,10 +2248,10 @@
                     const wobbleY = Math.cos(time * 0.0013 * drift + idx) * 8;
                     const deltaX = (targetX - baseX) * (0.9 + speed * 0.69);
                     const deltaY = (targetY - baseY) * (0.9 + speed * 0.69);
-                    const offsetX = deltaX + wobbleX;
-                    const offsetY = deltaY + wobbleY + (scrollRatio - 0.5) * 30;
+                    const offsetX = deltaX * intro + wobbleX;
+                    const offsetY = deltaY * intro + wobbleY + (scrollRatio - 0.5) * 30 * intro;
                     const scale = 0.69 + Math.sin(time * 0.0009 + idx) * 0.12;
-                    const opacity = 0.2 + Math.sin(time * 0.0014 + idx) * 0.2;
+                    const opacity = 0.69 + Math.sin(time * 0.0014 + idx) * 0.2;
                     orb.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0) scale(${scale})`;
                     orb.style.opacity = Math.min(Math.max(opacity, 0.35), 1);
                 });
