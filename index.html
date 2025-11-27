@@ -649,7 +649,7 @@
 
         .lane-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.25rem;
         }
 
@@ -889,7 +889,7 @@
 
         .about-stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 1rem;
         }
 
@@ -1334,6 +1334,10 @@
                         <div class="stat-label">Years Research</div>
                     </div>
                     <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Publications</div>
+                    </div>
+                    <div class="stat-item">
                         <div class="stat-number">4</div>
                         <div class="stat-label">Institutions</div>
                     </div>
@@ -1344,10 +1348,8 @@
                 </div>
                 
                 <div class="about-text">
-                    <h3>Research Focus</h3>
-                    <p>I'm an innovative researcher with expertise in Next-Generation Sequencing and cancer immunology, with a strong track record of developing novel methodologies and leading high-impact projects.</p>
-                    
-                    <p>I love developing platforms and tools to help researchers understand complex systems and diseases, using computational biology, machine learning, and single-cell technologies.</p>
+                    <p>I'm a researcher with expertise in Next-Generation Sequencing and cancer immunology, with a strong track record of developing novel methodologies and leading high-impact projects.
+                    I love developing platforms and tools to help researchers understand complex systems and diseases, using single-cell technologies and statistical modeling.</p>
 
                     <ul class="about-highlights">
                         <li><strong>ML Architecture Design:</strong> Build transformer and graph neural pipelines that denoise and align perturbation data across patient cohorts.</li>
