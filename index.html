@@ -588,6 +588,71 @@
             margin: 0 auto;
         }
 
+        /* Portfolio lanes */
+        .portfolio-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 1.5rem;
+            align-items: start;
+            margin-top: 2rem;
+        }
+
+        .lane {
+            position: relative;
+            padding: 1.5rem;
+            border-radius: 18px;
+            border: 1px solid var(--border-color);
+            background: linear-gradient(145deg, rgba(31, 31, 31, 0.92) 0%, rgba(12, 12, 12, 0.94) 100%);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+
+        .lane::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.08), rgba(0, 128, 255, 0.06));
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .lane-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .lane-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .lane-kicker {
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .lane-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .lane-note {
+            color: var(--text-secondary);
+        }
+
+        .lane-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
         /* Cards */
         .card {
             background: var(--bg-card);
@@ -1160,6 +1225,14 @@
             .about-stats {
                 grid-template-columns: 1fr;
             }
+
+            .portfolio-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .lane {
+                padding: 1.25rem;
+            }
         }
 
         /* Floating Elements */
@@ -1298,204 +1371,287 @@
                 </div>
             </div>
             
-            <div class="projects-grid animate-on-scroll">
-                <div class="card project-card featured">
-                    <div class="card-content">
-                        <div class="project-header">
-                            <h3>🧬 scPerturb-CMap</h3>
-                            <p class="project-description">Python toolkit for linking single-cell CRISPR screens to large drug-response datasets (Connectivity Map) to suggest drug repurposing strategies.</p>
+            <div class="portfolio-columns animate-on-scroll">
+                <div class="lane">
+                    <div class="lane-content">
+                        <div class="lane-header">
+                            <span class="lane-kicker">Computational Biology</span>
+                            <h3 class="lane-title">Bench-to-product builds</h3>
+                            <p class="lane-note">QC, annotation, and spatial pipelines shipped for wet labs and translational teams.</p>
                         </div>
-                        <ul class="project-meta">
-                            <li><i class="fas fa-code"></i><span>Uses deep learning to compare gene-editing and drug screens across tens of thousands of single cells.</span></li>
-                            <li><i class="fas fa-robot"></i><span>Includes a FastAPI service so you can send an expression profile and get back a ranked list of compounds.</span></li>
-                        </ul>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">PyTorch</span>
-                            <span class="project-tag">AnnData</span>
-                            <span class="project-tag">FastAPI</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/jameshyojaelee/scPerturb-CMap" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-                            <a href="#contact" class="project-link">Request Demo</a>
-                        </div>
-                    </div>
-                    <div class="project-peek">
-                        <div class="peek-title">Quick peek</div>
-                        <p class="peek-text">See drug links suggested for any single-cell profile you drop in.</p>
-                        <div class="peek-tags">
-                            <span class="peek-tag">Deep learning</span>
-                            <span class="peek-tag">Drug repurposing</span>
+                        <div class="lane-grid">
+                            <div class="card project-card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>🧬 scPerturb-CMap</h3>
+                                        <p class="project-description">Python toolkit for linking single-cell CRISPR screens to large drug-response datasets (Connectivity Map) to suggest drug repurposing strategies.</p>
+                                    </div>
+                                    <ul class="project-meta">
+                                        <li><i class="fas fa-code"></i><span>Uses deep learning to compare gene-editing and drug screens across tens of thousands of single cells.</span></li>
+                                        <li><i class="fas fa-robot"></i><span>Includes a FastAPI service so you can send an expression profile and get back a ranked list of compounds.</span></li>
+                                    </ul>
+                                    <div class="project-tags">
+                                        <span class="project-tag">Python</span>
+                                        <span class="project-tag">PyTorch</span>
+                                        <span class="project-tag">AnnData</span>
+                                        <span class="project-tag">FastAPI</span>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/scPerturb-CMap" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                        <a href="#contact" class="project-link">Request Demo</a>
+                                    </div>
+                                </div>
+                                <div class="project-peek">
+                                    <div class="peek-title">Quick peek</div>
+                                    <p class="peek-text">See drug links suggested for any single-cell profile you drop in.</p>
+                                    <div class="peek-tags">
+                                        <span class="peek-tag">Deep learning</span>
+                                        <span class="peek-tag">Drug repurposing</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card project-card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>🧠 GPT-cell-annotator</h3>
+                                        <p class="project-description">AI assistant that annotates single-cell RNA-seq clusters.</p>
+                                    </div>
+                                    <ul class="project-meta">
+                                        <li><i class="fas fa-brain"></i><span>Builds prompts from marker genes, QC summaries, and ontology terms so the model sees the same context a human annotator would.</span></li>
+                                        <li><i class="fas fa-laptop-code"></i><span>Electron/React interface on top of a Python backend that writes annotations directly into your AnnData object.</span></li>
+                                    </ul>
+                                    <div class="project-tags">
+                                        <span class="project-tag">Python</span>
+                                        <span class="project-tag">React</span>
+                                        <span class="project-tag">Electron</span>
+                                        <span class="project-tag">OpenAI API</span>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/GPT-cell-annotator" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                        <a href="#contact" class="project-link">Request Demo</a>
+                                    </div>
+                                </div>
+                                <div class="project-peek">
+                                    <div class="peek-title">Quick peek</div>
+                                    <p class="peek-text">Live prompts combine marker genes, QC, and ontology hints while you label clusters.</p>
+                                    <div class="peek-tags">
+                                        <span class="peek-tag">LLM</span>
+                                        <span class="peek-tag">Electron</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card project-card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>🧬 CRISPR-studio</h3>
+                                        <p class="project-description">Web app for exploring CRISPR screen results, from guide design through QC and visualization.</p>
+                                    </div>
+                                    <ul class="project-meta">
+                                        <li><i class="fas fa-dna"></i><span>Interactive plots help you spot dropouts, copy-number issues, and essential genes quickly.</span></li>
+                                        <li><i class="fas fa-server"></i><span>Rust backend scores guides and streams results into a TypeScript/React dashboard.</span></li>
+                                    </ul>
+                                    <div class="project-tags">
+                                        <span class="project-tag">TypeScript</span>
+                                        <span class="project-tag">React</span>
+                                        <span class="project-tag">Rust</span>
+                                        <span class="project-tag">D3.js</span>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/CRISPR-studio" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                    </div>
+                                </div>
+                                <div class="project-peek">
+                                    <div class="peek-title">Quick peek</div>
+                                    <p class="peek-text">Inspect dropout curves, copy-number calls, and gene hits in one streaming panel.</p>
+                                    <div class="peek-tags">
+                                        <span class="peek-tag">Rust backend</span>
+                                        <span class="peek-tag">React UI</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card project-card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>📱 Smart Cell Counter</h3>
+                                        <p class="project-description">iOS app that counts cells on a hemocytometer, estimates viability, and exports simple reports.</p>
+                                    </div>
+                                    <ul class="project-meta">
+                                        <li><i class="fas fa-microscope"></i><span>Runs the cell-detection model entirely on the device, so images stay offline.</span></li>
+                                        <li><i class="fas fa-file-export"></i><span>Generates PDF summaries you can attach to lab notebooks or LIMS records.</span></li>
+                                    </ul>
+                                    <div class="project-tags">
+                                        <span class="project-tag">Swift</span>
+                                        <span class="project-tag">TensorFlow Lite</span>
+                                        <span class="project-tag">CoreML</span>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/smart-cell-counter" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                    </div>
+                                </div>
+                                <div class="project-peek">
+                                    <div class="peek-title">Quick peek</div>
+                                    <p class="peek-text">On-device detection with instant viability math and PDF exports for your lab notes.</p>
+                                    <div class="peek-tags">
+                                        <span class="peek-tag">iOS</span>
+                                        <span class="peek-tag">CoreML</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card project-card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>🧬 scImmuneATLAS</h3>
+                                        <p class="project-description">Merged atlas of tumor-infiltrating immune cells, cleaned and annotated so you can start analysis instead of preprocessing.</p>
+                                    </div>
+                                    <ul class="project-meta">
+                                        <li><i class="fas fa-layer-group"></i><span>Combines over 20 public datasets using Harmony/SCTransform workflows to reduce batch effects.</span></li>
+                                        <li><i class="fas fa-share-alt"></i><span>Distributed as Seurat and AnnData objects (and Hugging Face datasets) that drop into existing pipelines.</span></li>
+                                    </ul>
+                                    <div class="project-tags">
+                                        <span class="project-tag">R</span>
+                                        <span class="project-tag">Seurat</span>
+                                        <span class="project-tag">Scanpy</span>
+                                        <span class="project-tag">h5ad</span>
+                                    </div>
+                                    <div class="project-stats">
+                                        <div class="project-stat">
+                                            <strong>1.2M</strong>
+                                            <span>cells</span>
+                                        </div>
+                                        <div class="project-stat">
+                                            <strong>35</strong>
+                                            <span>immune states</span>
+                                        </div>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/scImmuneATLAS" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                    </div>
+                                </div>
+                                <div class="project-peek">
+                                    <div class="peek-title">Quick peek</div>
+                                    <p class="peek-text">Jump straight into pre-annotated immune states across 1.2M cells—no preprocessing.</p>
+                                    <div class="peek-tags">
+                                        <span class="peek-tag">Atlas</span>
+                                        <span class="peek-tag">Batch correction</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card project-card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>🧬 OmniSpatial</h3>
+                                        <p class="project-description">Toolkit for turning spatial omics data from different platforms into a single, browsable format.</p>
+                                    </div>
+                                    <ul class="project-meta">
+                                        <li><i class="fas fa-map-marked-alt"></i><span>Command-line tools convert Visium, CosMx, MIBI and similar exports into Zarr-based SpatialData/NGFF files.</span></li>
+                                        <li><i class="fas fa-cloud-upload-alt"></i><span>Ships with a Dockerized Next.js viewer that serves tiled images and overlays in the browser.</span></li>
+                                    </ul>
+                                    <div class="project-tags">
+                                        <span class="project-tag">Python</span>
+                                        <span class="project-tag">Next.js</span>
+                                        <span class="project-tag">SpatialData</span>
+                                        <span class="project-tag">Docker</span>
+                                    </div>
+                                    <div class="project-stats">
+                                        <div class="project-stat">
+                                            <strong>4TB</strong>
+                                            <span>imagery served</span>
+                                        </div>
+                                        <div class="project-stat">
+                                            <strong>5+</strong>
+                                            <span>platforms unified</span>
+                                        </div>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/OmniSpatial" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                    </div>
+                                </div>
+                                <div class="project-peek">
+                                    <div class="peek-title">Quick peek</div>
+                                    <p class="peek-text">Tile and serve spatial layers in a NGFF viewer with dockerized Next.js.</p>
+                                    <div class="peek-tags">
+                                        <span class="peek-tag">SpatialData</span>
+                                        <span class="peek-tag">Next.js</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card project-card featured">
-                    <div class="card-content">
-                        <div class="project-header">
-                            <h3>🧠 GPT-cell-annotator</h3>
-                            <p class="project-description">AI assistant that annotates single-cell RNA-seq clusters</p>
+                <div class="lane">
+                    <div class="lane-content">
+                        <div class="lane-header">
+                            <span class="lane-kicker">Finance & Markets</span>
+                            <h3 class="lane-title">Biotech-fluent data & quant work</h3>
+                            <p class="lane-note">Early-stage finance ramp: health ETF research, factor-aware backtests, and PM-friendly reporting.</p>
                         </div>
-                        <ul class="project-meta">
-                            <li><i class="fas fa-brain"></i><span>Builds prompts from marker genes, QC summaries, and ontology terms so the model sees the same context a human annotator would.</span></li>
-                            <li><i class="fas fa-laptop-code"></i><span>Electron/React interface on top of a Python backend that writes annotations directly into your AnnData object.</span></li>
-                        </ul>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">Electron</span>
-                            <span class="project-tag">OpenAI API</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/jameshyojaelee/GPT-cell-annotator" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-                            <a href="#contact" class="project-link">Request Demo</a>
-                        </div>
-                    </div>
-                    <div class="project-peek">
-                        <div class="peek-title">Quick peek</div>
-                        <p class="peek-text">Live prompts combine marker genes, QC, and ontology hints while you label clusters.</p>
-                        <div class="peek-tags">
-                            <span class="peek-tag">LLM</span>
-                            <span class="peek-tag">Electron</span>
-                        </div>
-                    </div>
-                </div>
+                        <div class="lane-grid">
+                            <div class="card project-card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>📊 Health ETF Quant</h3>
+                                        <p class="project-description">Regime-aware XBI vs XPH spread plus momentum rotation across healthcare subsectors with clear risk notes and benchmarks.</p>
+                                    </div>
+                                    <ul class="project-meta">
+                                        <li><i class="fas fa-random"></i><span>Strategy 1: macro regime classifier gates a biotech vs pharma long/short spread.</span></li>
+                                        <li><i class="fas fa-chart-line"></i><span>Strategy 2: cross-sectional momentum with volatility targeting across XLV, XBI, XPH, IHF, IHI.</span></li>
+                                        <li><i class="fas fa-clipboard-check"></i><span>Includes benchmarks, factor context, and explicit assumptions for PM review.</span></li>
+                                    </ul>
+                                    <div class="project-tags">
+                                        <span class="project-tag">Python</span>
+                                        <span class="project-tag">Pandas</span>
+                                        <span class="project-tag">Backtesting</span>
+                                        <span class="project-tag">Healthcare ETFs</span>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/health-etf-quant" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                        <a href="#contact" class="project-link">Discuss results</a>
+                                    </div>
+                                </div>
+                                <div class="project-peek">
+                                    <div class="peek-title">Quick peek</div>
+                                    <p class="peek-text">Two strategies: macro regime long/short (biotech vs pharma) and momentum rotation with volatility targeting.</p>
+                                    <div class="peek-tags">
+                                        <span class="peek-tag">Risk/return</span>
+                                        <span class="peek-tag">Factor-aware</span>
+                                    </div>
+                                </div>
+                            </div>
 
-                <div class="card project-card">
-                    <div class="card-content">
-                        <div class="project-header">
-                            <h3>🧬 CRISPR-studio</h3>
-                            <p class="project-description">Web app for exploring CRISPR screen results, from guide design through QC and visualization.</p>
-                        </div>
-                        <ul class="project-meta">
-                            <li><i class="fas fa-dna"></i><span>Interactive plots help you spot dropouts, copy-number issues, and essential genes quickly.</span></li>
-                            <li><i class="fas fa-server"></i><span>Rust backend scores guides and streams results into a TypeScript/React dashboard.</span></li>
-                        </ul>
-                        <div class="project-tags">
-                            <span class="project-tag">TypeScript</span>
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">Rust</span>
-                            <span class="project-tag">D3.js</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/jameshyojaelee/CRISPR-studio" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-                        </div>
-                    </div>
-                    <div class="project-peek">
-                        <div class="peek-title">Quick peek</div>
-                        <p class="peek-text">Inspect dropout curves, copy-number calls, and gene hits in one streaming panel.</p>
-                        <div class="peek-tags">
-                            <span class="peek-tag">Rust backend</span>
-                            <span class="peek-tag">React UI</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card project-card">
-                    <div class="card-content">
-                        <div class="project-header">
-                            <h3>📱 Smart Cell Counter</h3>
-                            <p class="project-description">iOS app that counts cells on a hemocytometer, estimates viability, and exports simple reports.</p>
-                        </div>
-                        <ul class="project-meta">
-                            <li><i class="fas fa-microscope"></i><span>Runs the cell-detection model entirely on the device, so images stay offline.</span></li>
-                            <li><i class="fas fa-file-export"></i><span>Generates PDF summaries you can attach to lab notebooks or LIMS records.</span></li>
-                        </ul>
-                        <div class="project-tags">
-                            <span class="project-tag">Swift</span>
-                            <span class="project-tag">TensorFlow Lite</span>
-                            <span class="project-tag">CoreML</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/jameshyojaelee/smart-cell-counter" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-                        </div>
-                    </div>
-                    <div class="project-peek">
-                        <div class="peek-title">Quick peek</div>
-                        <p class="peek-text">On-device detection with instant viability math and PDF exports for your lab notes.</p>
-                        <div class="peek-tags">
-                            <span class="peek-tag">iOS</span>
-                            <span class="peek-tag">CoreML</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card project-card">
-                    <div class="card-content">
-                        <div class="project-header">
-                            <h3>🧬 scImmuneATLAS</h3>
-                            <p class="project-description">Merged atlas of tumor-infiltrating immune cells, cleaned and annotated so you can start analysis instead of preprocessing.</p>
-                        </div>
-                        <ul class="project-meta">
-                            <li><i class="fas fa-layer-group"></i><span>Combines over 20 public datasets using Harmony/SCTransform workflows to reduce batch effects.</span></li>
-                            <li><i class="fas fa-share-alt"></i><span>Distributed as Seurat and AnnData objects (and Hugging Face datasets) that drop into existing pipelines.</span></li>
-                        </ul>
-                        <div class="project-tags">
-                            <span class="project-tag">R</span>
-                            <span class="project-tag">Seurat</span>
-                            <span class="project-tag">Scanpy</span>
-                            <span class="project-tag">h5ad</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="project-stat">
-                                <strong>1.2M</strong>
-                                <span>cells</span>
+                            <div class="card project-card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>🧾 Biotech coverage prep</h3>
+                                        <p class="project-description">Lightweight template for earnings snapshots and catalyst calendars to brief PMs on devices, providers, and biotech names.</p>
+                                    </div>
+                                    <ul class="project-meta">
+                                        <li><i class="fas fa-calendar-alt"></i><span>Notebook-first outline for catalysts, subsector drivers, and regulatory watchlists.</span></li>
+                                        <li><i class="fas fa-balance-scale"></i><span>Pairs with ETF backtests to connect single-name color with basket factors.</span></li>
+                                    </ul>
+                                    <div class="project-tags">
+                                        <span class="project-tag">In progress</span>
+                                        <span class="project-tag">Equity research</span>
+                                        <span class="project-tag">Notebook-first</span>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="#contact" class="project-link primary">Request a preview</a>
+                                    </div>
+                                </div>
+                                <div class="project-peek">
+                                    <div class="peek-title">Quick peek</div>
+                                    <p class="peek-text">Designed to pair with the ETF backtests: quick comps, subsector drivers, and regulatory watchlists.</p>
+                                    <div class="peek-tags">
+                                        <span class="peek-tag">Biotech focus</span>
+                                        <span class="peek-tag">PM-friendly</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="project-stat">
-                                <strong>35</strong>
-                                <span>immune states</span>
-                            </div>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/jameshyojaelee/scImmuneATLAS" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-                        </div>
-                    </div>
-                    <div class="project-peek">
-                        <div class="peek-title">Quick peek</div>
-                        <p class="peek-text">Jump straight into pre-annotated immune states across 1.2M cells—no preprocessing.</p>
-                        <div class="peek-tags">
-                            <span class="peek-tag">Atlas</span>
-                            <span class="peek-tag">Batch correction</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card project-card">
-                    <div class="card-content">
-                        <div class="project-header">
-                            <h3>🧬 OmniSpatial</h3>
-                            <p class="project-description">Toolkit for turning spatial omics data from different platforms into a single, browsable format.</p>
-                        </div>
-                        <ul class="project-meta">
-                            <li><i class="fas fa-map-marked-alt"></i><span>Command-line tools convert Visium, CosMx, MIBI and similar exports into Zarr-based SpatialData/NGFF files.</span></li>
-                            <li><i class="fas fa-cloud-upload-alt"></i><span>Ships with a Dockerized Next.js viewer that serves tiled images and overlays in the browser.</span></li>
-                        </ul>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Next.js</span>
-                            <span class="project-tag">SpatialData</span>
-                            <span class="project-tag">Docker</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="project-stat">
-                                <strong>4TB</strong>
-                                <span>imagery served</span>
-                            </div>
-                            <div class="project-stat">
-                                <strong>5+</strong>
-                                <span>platforms unified</span>
-                            </div>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/jameshyojaelee/OmniSpatial" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-                        </div>
-                    </div>
-                    <div class="project-peek">
-                        <div class="peek-title">Quick peek</div>
-                        <p class="peek-text">Tile and serve spatial layers in a NGFF viewer with dockerized Next.js.</p>
-                        <div class="peek-tags">
-                            <span class="peek-tag">SpatialData</span>
-                            <span class="peek-tag">Next.js</span>
                         </div>
                     </div>
                 </div>

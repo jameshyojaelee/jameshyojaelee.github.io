@@ -339,21 +339,6 @@
             font-size: 0.85rem;
         }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        .info-pill {
-            padding: 1rem 1.25rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            background: var(--bg-secondary);
-            color: var(--text-secondary);
-        }
-        .info-pill strong { color: var(--text-primary); }
-
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes orbPing { 0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.45); } 70% { box-shadow: 0 0 0 12px rgba(0, 255, 136, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); } }
         .animate-on-scroll { opacity: 0; transition: all 0.8s ease; }
@@ -362,6 +347,8 @@
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .projects-grid { grid-template-columns: 1fr; }
+            .portfolio-columns { grid-template-columns: 1fr; }
+            .lane { padding: 1.1rem; }
         }
     </style>
 </head>
@@ -390,164 +377,237 @@
                 <p class="section-subtitle">Each card links to code, demos, or datasets. Hover for a peek; tap on mobile.</p>
             </div>
 
-            <div class="projects-grid animate-on-scroll">
-                <div class="card">
-                    <div class="card-content">
-                        <div class="project-header">
-                            <h3>🧬 scPerturb-CMap</h3>
-                            <p class="project-description">Python toolkit linking single-cell CRISPR screens to Connectivity Map drug responses for repurposing hypotheses.</p>
+            <div class="portfolio-columns animate-on-scroll">
+                <div class="lane">
+                    <div class="lane-content">
+                        <div class="lane-header">
+                            <span class="lane-kicker">Computational Biology</span>
+                            <h3 class="lane-title">Bench-to-product builds</h3>
+                            <p class="lane-note">QC, annotation, and spatial pipelines shipped for wet labs and translational teams.</p>
                         </div>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">PyTorch</span>
-                            <span class="project-tag">AnnData</span>
-                            <span class="project-tag">FastAPI</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/jameshyojaelee/scPerturb-CMap" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-                            <a href="/#contact" class="project-link">Request Demo</a>
-                        </div>
-                    </div>
-                    <div class="project-peek">
-                        <div class="peek-title">Quick peek</div>
-                        <p class="peek-text">Upload a CRISPR expression profile, get ranked compound suggestions with similarity maps.</p>
-                        <div class="peek-tags">
-                            <span class="peek-tag">Deep learning</span>
-                            <span class="peek-tag">Drug repurposing</span>
+                        <div class="lane-grid">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>🧬 scPerturb-CMap</h3>
+                                        <p class="project-description">Python toolkit linking single-cell CRISPR screens to Connectivity Map drug responses for repurposing hypotheses.</p>
+                                    </div>
+                                    <div class="project-tags">
+                                        <span class="project-tag">Python</span>
+                                        <span class="project-tag">PyTorch</span>
+                                        <span class="project-tag">AnnData</span>
+                                        <span class="project-tag">FastAPI</span>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/scPerturb-CMap" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                        <a href="/#contact" class="project-link">Request Demo</a>
+                                    </div>
+                                </div>
+                                <div class="project-peek">
+                                    <div class="peek-title">Quick peek</div>
+                                    <p class="peek-text">Upload a CRISPR expression profile, get ranked compound suggestions with similarity maps.</p>
+                                    <div class="peek-tags">
+                                        <span class="peek-tag">Deep learning</span>
+                                        <span class="peek-tag">Drug repurposing</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>🧠 GPT-cell-annotator</h3>
+                                        <p class="project-description">LLM assistant that annotates single-cell clusters using marker genes, QC summaries, and ontology cues.</p>
+                                    </div>
+                                    <div class="project-tags">
+                                        <span class="project-tag">Python</span>
+                                        <span class="project-tag">React</span>
+                                        <span class="project-tag">Electron</span>
+                                        <span class="project-tag">OpenAI API</span>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/GPT-cell-annotator" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                        <a href="/#contact" class="project-link">Request Demo</a>
+                                    </div>
+                                </div>
+                                <div class="project-peek">
+                                    <div class="peek-title">Quick peek</div>
+                                    <p class="peek-text">Prompt builder fuses markers and metadata; annotations write back into your AnnData.</p>
+                                    <div class="peek-tags">
+                                        <span class="peek-tag">LLM</span>
+                                        <span class="peek-tag">UI</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>🧬 CRISPR-studio</h3>
+                                        <p class="project-description">Web app for CRISPR screen QC and visualization with streaming metrics and guide scoring.</p>
+                                    </div>
+                                    <div class="project-tags">
+                                        <span class="project-tag">TypeScript</span>
+                                        <span class="project-tag">React</span>
+                                        <span class="project-tag">Rust</span>
+                                        <span class="project-tag">D3.js</span>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/CRISPR-studio" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                    </div>
+                                </div>
+                                <div class="project-peek">
+                                    <div class="peek-title">Quick peek</div>
+                                    <p class="peek-text">Check dropout curves, CNV noise, and hit calling in one streaming dashboard.</p>
+                                    <div class="peek-tags">
+                                        <span class="peek-tag">Rust backend</span>
+                                        <span class="peek-tag">Data viz</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>📱 Smart Cell Counter</h3>
+                                        <p class="project-description">iOS app that counts cells, estimates viability, and exports PDF summaries entirely on-device.</p>
+                                    </div>
+                                    <div class="project-tags">
+                                        <span class="project-tag">Swift</span>
+                                        <span class="project-tag">TensorFlow Lite</span>
+                                        <span class="project-tag">CoreML</span>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/smart-cell-counter" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                    </div>
+                                </div>
+                                <div class="project-peek">
+                                    <div class="peek-title">Quick peek</div>
+                                    <p class="peek-text">On-device inference keeps images offline; single tap exports reports for LIMS.</p>
+                                    <div class="peek-tags">
+                                        <span class="peek-tag">Mobile</span>
+                                        <span class="peek-tag">Edge ML</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>🧬 scImmuneATLAS</h3>
+                                        <p class="project-description">Integrated atlas of tumor-infiltrating immune cells with harmonized annotations and batch correction.</p>
+                                    </div>
+                                    <div class="project-tags">
+                                        <span class="project-tag">R</span>
+                                        <span class="project-tag">Seurat</span>
+                                        <span class="project-tag">Scanpy</span>
+                                        <span class="project-tag">h5ad</span>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/scImmuneATLAS" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                    </div>
+                                </div>
+                                <div class="project-peek">
+                                    <div class="peek-title">Quick peek</div>
+                                    <p class="peek-text">1.2M cells, 35 immune states, distributed as Seurat and AnnData objects.</p>
+                                    <div class="peek-tags">
+                                        <span class="peek-tag">Atlas</span>
+                                        <span class="peek-tag">Batch correction</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>🧬 OmniSpatial</h3>
+                                        <p class="project-description">Toolkit to convert spatial omics formats into NGFF/SpatialData and serve tiled overlays via Next.js.</p>
+                                    </div>
+                                    <div class="project-tags">
+                                        <span class="project-tag">Python</span>
+                                        <span class="project-tag">SpatialData</span>
+                                        <span class="project-tag">Next.js</span>
+                                        <span class="project-tag">Docker</span>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/OmniSpatial" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                    </div>
+                                </div>
+                                <div class="project-peek">
+                                    <div class="peek-title">Quick peek</div>
+                                    <p class="peek-text">Harmonize Visium/CosMx/MIBI exports and tile them for browser overlays.</p>
+                                    <div class="peek-tags">
+                                        <span class="peek-tag">Spatial</span>
+                                        <span class="peek-tag">NGFF</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-content">
-                        <div class="project-header">
-                            <h3>🧠 GPT-cell-annotator</h3>
-                            <p class="project-description">LLM assistant that annotates single-cell clusters using marker genes, QC summaries, and ontology cues.</p>
+                <div class="lane">
+                    <div class="lane-content">
+                        <div class="lane-header">
+                            <span class="lane-kicker">Finance & Markets</span>
+                            <h3 class="lane-title">Biotech-fluent data & quant work</h3>
+                            <p class="lane-note">Early-stage finance ramp: health ETF research, factor-aware backtests, and PM-friendly reporting.</p>
                         </div>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">Electron</span>
-                            <span class="project-tag">OpenAI API</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/jameshyojaelee/GPT-cell-annotator" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-                            <a href="/#contact" class="project-link">Request Demo</a>
-                        </div>
-                    </div>
-                    <div class="project-peek">
-                        <div class="peek-title">Quick peek</div>
-                        <p class="peek-text">Prompt builder fuses markers and metadata; annotations write back into your AnnData.</p>
-                        <div class="peek-tags">
-                            <span class="peek-tag">LLM</span>
-                            <span class="peek-tag">UI</span>
+                        <div class="lane-grid">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>📊 Health ETF Quant</h3>
+                                        <p class="project-description">Regime-aware XBI vs XPH spread and momentum rotation across healthcare subsectors with clear risk notes and benchmarks.</p>
+                                    </div>
+                                    <div class="project-tags">
+                                        <span class="project-tag">Python</span>
+                                        <span class="project-tag">Pandas</span>
+                                        <span class="project-tag">Backtesting</span>
+                                        <span class="project-tag">Healthcare ETFs</span>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/health-etf-quant" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                        <a href="/#contact" class="project-link">Discuss results</a>
+                                    </div>
+                                </div>
+                                <div class="project-peek">
+                                    <div class="peek-title">Quick peek</div>
+                                    <p class="peek-text">Two strategies: macro regime long/short (biotech vs pharma) and momentum rotation with volatility targeting.</p>
+                                    <div class="peek-tags">
+                                        <span class="peek-tag">Risk/return</span>
+                                        <span class="peek-tag">Factor-aware</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>🧾 Biotech coverage prep</h3>
+                                        <p class="project-description">Lightweight template for earnings snapshots and catalyst calendars to brief PMs on devices, providers, and biotech names.</p>
+                                    </div>
+                                    <div class="project-tags">
+                                        <span class="project-tag">In progress</span>
+                                        <span class="project-tag">Equity research</span>
+                                        <span class="project-tag">Notebook-first</span>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="/#contact" class="project-link primary">Request a preview</a>
+                                    </div>
+                                </div>
+                                <div class="project-peek">
+                                    <div class="peek-title">Quick peek</div>
+                                    <p class="peek-text">Designed to pair with the ETF backtests: quick comps, subsector drivers, and regulatory watchlists.</p>
+                                    <div class="peek-tags">
+                                        <span class="peek-tag">Biotech focus</span>
+                                        <span class="peek-tag">PM-friendly</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="card">
-                    <div class="card-content">
-                        <div class="project-header">
-                            <h3>🧬 CRISPR-studio</h3>
-                            <p class="project-description">Web app for CRISPR screen QC and visualization with streaming metrics and guide scoring.</p>
-                        </div>
-                        <div class="project-tags">
-                            <span class="project-tag">TypeScript</span>
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">Rust</span>
-                            <span class="project-tag">D3.js</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/jameshyojaelee/CRISPR-studio" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-                        </div>
-                    </div>
-                    <div class="project-peek">
-                        <div class="peek-title">Quick peek</div>
-                        <p class="peek-text">Check dropout curves, CNV noise, and hit calling in one streaming dashboard.</p>
-                        <div class="peek-tags">
-                            <span class="peek-tag">Rust backend</span>
-                            <span class="peek-tag">Data viz</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-content">
-                        <div class="project-header">
-                            <h3>📱 Smart Cell Counter</h3>
-                            <p class="project-description">iOS app that counts cells, estimates viability, and exports PDF summaries entirely on-device.</p>
-                        </div>
-                        <div class="project-tags">
-                            <span class="project-tag">Swift</span>
-                            <span class="project-tag">TensorFlow Lite</span>
-                            <span class="project-tag">CoreML</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/jameshyojaelee/smart-cell-counter" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-                        </div>
-                    </div>
-                    <div class="project-peek">
-                        <div class="peek-title">Quick peek</div>
-                        <p class="peek-text">On-device inference keeps images offline; single tap exports reports for LIMS.</p>
-                        <div class="peek-tags">
-                            <span class="peek-tag">Mobile</span>
-                            <span class="peek-tag">Edge ML</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-content">
-                        <div class="project-header">
-                            <h3>🧬 scImmuneATLAS</h3>
-                            <p class="project-description">Integrated atlas of tumor-infiltrating immune cells with harmonized annotations and batch correction.</p>
-                        </div>
-                        <div class="project-tags">
-                            <span class="project-tag">R</span>
-                            <span class="project-tag">Seurat</span>
-                            <span class="project-tag">Scanpy</span>
-                            <span class="project-tag">h5ad</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/jameshyojaelee/scImmuneATLAS" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-                        </div>
-                    </div>
-                    <div class="project-peek">
-                        <div class="peek-title">Quick peek</div>
-                        <p class="peek-text">1.2M cells, 35 immune states, distributed as Seurat and AnnData objects.</p>
-                        <div class="peek-tags">
-                            <span class="peek-tag">Atlas</span>
-                            <span class="peek-tag">Batch correction</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-content">
-                        <div class="project-header">
-                            <h3>🧬 OmniSpatial</h3>
-                            <p class="project-description">Toolkit to convert spatial omics formats into NGFF/SpatialData and serve tiled overlays via Next.js.</p>
-                        </div>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">SpatialData</span>
-                            <span class="project-tag">Next.js</span>
-                            <span class="project-tag">Docker</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com/jameshyojaelee/OmniSpatial" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-                        </div>
-                    </div>
-                    <div class="project-peek">
-                        <div class="peek-title">Quick peek</div>
-                        <p class="peek-text">Harmonize Visium/CosMx/MIBI exports and tile them for browser overlays.</p>
-                        <div class="peek-tags">
-                            <span class="peek-tag">Spatial</span>
-                            <span class="peek-tag">NGFF</span>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
