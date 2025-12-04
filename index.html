@@ -2009,6 +2009,8 @@
     </div>
 
     <script>
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -2054,6 +2056,8 @@
         // Floating elements animation
         function createFloatingElements() {
             const container = document.getElementById('floating-elements');
+            const spawnEvery = isMobile ? 8000 : 3000;
+            const maxLifetime = isMobile ? 18000 : 25000;
             
             setInterval(() => {
                 const element = document.createElement('div');
@@ -2066,8 +2070,8 @@
                 
                 setTimeout(() => {
                     element.remove();
-                }, 25000);
-            }, 3000);
+                }, maxLifetime);
+            }, spawnEvery);
         }
 
         // Timeline animation
@@ -2177,7 +2181,8 @@
             ];
 
             const orbs = [];
-            const orbCount = 90;
+            const orbCount = isMobile ? 24 : 90;
+            const hasShadow = !isMobile;
 
             for (let i = 0; i < orbCount; i++) {
                 const orb = document.createElement('div');
@@ -2191,6 +2196,10 @@
                 orb.style.top = `${baseY}%`;
                 const base = colors[i % colors.length];
                 orb.style.background = `radial-gradient(circle, rgba(255,255,255,0.9) 0%, ${base} 50%, rgba(0,0,0,0) 75%)`;
+                if (!hasShadow) {
+                    orb.style.boxShadow = 'none';
+                    orb.style.filter = 'none';
+                }
                 orb.dataset.speed = (Math.random() * 1.2 + 0.8).toFixed(2); // baseline parallax strength
                 orb.dataset.drift = (Math.random() * 1.2 + 0.8).toFixed(2); // wobble variance
                 orb.dataset.x = baseX.toFixed(2);
@@ -2202,6 +2211,7 @@
             const cursor = { x: 0.5, y: 0.5 };
             const smooth = { x: 0.5, y: 0.5 };
             let scrollRatio = 0.5;
+            let heroRect = hero.getBoundingClientRect();
 
             hero.addEventListener('mousemove', (event) => {
                 const rect = hero.getBoundingClientRect();
@@ -2214,9 +2224,15 @@
                 cursor.y = 0.5;
             });
 
+            const updateHeroRect = () => {
+                heroRect = hero.getBoundingClientRect();
+            };
+
+            window.addEventListener('resize', updateHeroRect);
+
             window.addEventListener('scroll', () => {
-                const rect = hero.getBoundingClientRect();
-                scrollRatio = Math.min(Math.max((0 - rect.top) / rect.height, 0), 1);
+                updateHeroRect();
+                scrollRatio = Math.min(Math.max((0 - heroRect.top) / heroRect.height, 0), 1);
             });
 
             let startTime = null;
@@ -2227,15 +2243,14 @@
                 smooth.x += (cursor.x - smooth.x) * 0.005;
                 smooth.y += (cursor.y - smooth.y) * 0.005;
 
-                const rect = hero.getBoundingClientRect();
-                const targetX = smooth.x * rect.width;
-                const targetY = smooth.y * rect.height;
+                const targetX = smooth.x * heroRect.width;
+                const targetY = smooth.y * heroRect.height;
 
                 orbs.forEach((orb, idx) => {
                     const speed = parseFloat(orb.dataset.speed);
                     const drift = parseFloat(orb.dataset.drift);
-                    const baseX = (parseFloat(orb.dataset.x) / 100) * rect.width;
-                    const baseY = (parseFloat(orb.dataset.y) / 100) * rect.height;
+                    const baseX = (parseFloat(orb.dataset.x) / 100) * heroRect.width;
+                    const baseY = (parseFloat(orb.dataset.y) / 100) * heroRect.height;
                     const wobbleX = Math.sin(time * 0.0011 * drift + idx) * 8;
                     const wobbleY = Math.cos(time * 0.0013 * drift + idx) * 8;
                     const deltaX = (targetX - baseX) * (0.9 + speed * 0.69);
