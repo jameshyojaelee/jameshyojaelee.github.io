@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ED44XKSJCT"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', 'G-ED44XKSJCT');
+        gtag('config', 'G-ED44XKSJCT');
     </script>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>James Hyojae Lee</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script type="application/ld+json">
     {
@@ -124,9 +127,20 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(0.95); opacity: 0.8; }
-            50% { transform: scale(1.05); opacity: 1; }
-            100% { transform: scale(0.95); opacity: 0.8; }
+            0% {
+                transform: scale(0.95);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0.95);
+                opacity: 0.8;
+            }
         }
 
         /* Animated Background */
@@ -137,7 +151,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 40% 40%, rgba(0, 128, 255, 0.1) 0%, transparent 50%);
@@ -146,9 +160,19 @@
         }
 
         @keyframes backgroundShift {
-            0%, 100% { transform: translateX(0) translateY(0); }
-            33% { transform: translateX(-20px) translateY(-10px); }
-            66% { transform: translateX(20px) translateY(10px); }
+
+            0%,
+            100% {
+                transform: translateX(0) translateY(0);
+            }
+
+            33% {
+                transform: translateX(-20px) translateY(-10px);
+            }
+
+            66% {
+                transform: translateX(20px) translateY(10px);
+            }
         }
 
         /* Custom Scrollbar */
@@ -247,11 +271,11 @@
             width: 100%;
         }
 
-	        /* Ping markers */
-	        .timeline-item::after {
-	            content: '';
-	            position: absolute;
-	            left: 50%;
+        /* Ping markers */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 50%;
             top: 1.2rem;
             width: 12px;
             height: 12px;
@@ -265,13 +289,13 @@
             z-index: 3;
         }
 
-	        .timeline-item.in-view::after {
-	            opacity: 1;
-	            animation: orbPing 1.8s infinite;
-	        }
+        .timeline-item.in-view::after {
+            opacity: 1;
+            animation: orbPing 1.8s infinite;
+        }
 
-	        /* Hero Section */
-	        .hero {
+        /* Hero Section */
+        .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -290,14 +314,11 @@
 
         .parallax-orb {
             position: absolute;
-            width: 12px;
-            height: 12px;
+            background: #fff;
             border-radius: 50%;
+            pointer-events: none;
             opacity: 0.8;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(0, 255, 136, 0.3) 45%, rgba(0, 0, 0, 0) 70%);
-            box-shadow: 0 0 18px rgba(0, 255, 136, 0.28), 0 0 26px rgba(0, 128, 255, 0.12);
-            filter: drop-shadow(0 0 6px rgba(0, 128, 255, 0.18));
-            transition: transform 0.25s ease-out, opacity 0.25s ease-out;
+            transition: opacity 0.3s ease;
         }
 
         .hero-content {
@@ -422,9 +443,17 @@
             border-radius: 50%;
         }
 
-        .code-dot.red { background: #ff5f57; }
-        .code-dot.yellow { background: #ffbd2e; }
-        .code-dot.green { background: #28c840; }
+        .code-dot.red {
+            background: #ff5f57;
+        }
+
+        .code-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .code-dot.green {
+            background: #28c840;
+        }
 
         .code-body {
             padding: 1.5rem;
@@ -489,8 +518,15 @@
         }
 
         @keyframes rippleAnim {
-            from { transform: translate(-50%, -50%) scale(0); opacity: 0.45; }
-            to { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+            from {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0.45;
+            }
+
+            to {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0;
+            }
         }
 
         /* Social Links */
@@ -1114,6 +1150,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1121,14 +1158,27 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes orbPing {
-            0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.45); }
-            70% { box-shadow: 0 0 0 12px rgba(0, 255, 136, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.45);
+            }
+
+            70% {
+                box-shadow: 0 0 0 12px rgba(0, 255, 136, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 255, 136, 0);
+            }
         }
 
         .animate-on-scroll {
@@ -1146,13 +1196,13 @@
             .nav-links {
                 display: none;
             }
-            
+
             .section-indicator {
                 right: 50%;
                 transform: translate3d(50%, 10px, 0);
                 bottom: 1.5rem;
             }
-            
+
             .section-indicator.visible {
                 transform: translate3d(50%, 0, 0);
             }
@@ -1164,32 +1214,32 @@
             .hero-code {
                 margin-top: 2rem;
             }
-            
+
             .hero-title {
                 font-size: 3rem;
             }
-            
+
             .about-content {
                 flex-direction: column;
                 gap: 2rem;
             }
-            
+
             .timeline::before {
                 left: 20px;
             }
-            
+
             .timeline-item {
                 padding-left: 50px;
                 padding-right: 0;
                 text-align: left;
             }
-            
+
             .timeline-item:nth-child(odd) {
                 padding-right: 0;
                 padding-left: 50px;
                 text-align: left;
             }
-            
+
             .about-stats {
                 grid-template-columns: 1fr;
             }
@@ -1228,6 +1278,7 @@
                 transform: translateY(100vh) rotate(0deg);
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(-100px) rotate(360deg);
                 opacity: 0;
@@ -1235,6 +1286,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="scroll-progress" id="scroll-progress"></div>
     <!-- Navigation -->
@@ -1262,24 +1314,28 @@
             <div class="hero-subtitle">&gt; >welcome to my personal website!</div>
             <h1 class="hero-title">James Lee</h1>
             <p class="hero-description"> Systems Thinker and Engineer <br>
-            Building Tools for Biological Discovery</p>
-            
+                Building Tools for Biological Discovery</p>
+
             <div class="hero-cta">
                 <a href="#projects" class="btn btn-primary">Explore My Work</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
             </div>
-            
+
             <div class="social-links">
-                <a href="https://github.com/jameshyojaelee" class="social-link" target="_blank" rel="noopener noreferrer" title="GitHub Portfolio">
+                <a href="https://github.com/jameshyojaelee" class="social-link" target="_blank"
+                    rel="noopener noreferrer" title="GitHub Portfolio">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/jameshyojaelee/" class="social-link" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile">
+                <a href="https://www.linkedin.com/in/jameshyojaelee/" class="social-link" target="_blank"
+                    rel="noopener noreferrer" title="LinkedIn Profile">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://x.com/JamesHyojaeLee" class="social-link" target="_blank" rel="noopener noreferrer" title="Twitter/X @JamesHyojaeLee">
+                <a href="https://x.com/JamesHyojaeLee" class="social-link" target="_blank" rel="noopener noreferrer"
+                    title="Twitter/X @JamesHyojaeLee">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a href="https://scholar.google.com/citations?user=Mwmq8b4AAAAJ&hl=en" class="social-link" target="_blank" rel="noopener noreferrer" title="Google Scholar">
+                <a href="https://scholar.google.com/citations?user=Mwmq8b4AAAAJ&hl=en" class="social-link"
+                    target="_blank" rel="noopener noreferrer" title="Google Scholar">
                     <i class="fas fa-graduation-cap"></i>
                 </a>
                 <a href="mailto:james.hyojae.lee@gmail.com" class="social-link" title="Email Contact">
@@ -1314,15 +1370,20 @@
                         <div class="stat-label">Curiosity</div>
                     </div>
                 </div>
-                
+
                 <div class="about-text">
-                    <p>I'm a researcher with expertise in Next-Generation Sequencing and cancer immunology, with a strong track record of developing novel methodologies and leading high-impact projects.
-                    I love developing platforms and tools to help researchers understand complex systems and diseases, using single-cell technologies and statistical modeling.</p>
+                    <p>I'm a researcher with expertise in Next-Generation Sequencing and cancer immunology, with a
+                        strong track record of developing novel methodologies and leading high-impact projects.
+                        I love developing platforms and tools to help researchers understand complex systems and
+                        diseases, using single-cell technologies and statistical modeling.</p>
 
                     <ul class="about-highlights">
-                        <li><strong>ML Architecture Design:</strong> Build transformer and graph neural pipelines that denoise and align perturbation data across patient cohorts.</li>
-                        <li><strong>End-to-end Engineering:</strong> Package research models into production-ready CLIs, APIs, and dashboards with testing and docs.</li>
-                        <li><strong>Research Translation:</strong> Experience in wet lab to interpret model outputs for prioritizing CRISPR targets and drug combinations.</li>
+                        <li><strong>ML Architecture Design:</strong> Build transformer and graph neural pipelines that
+                            denoise and align perturbation data across patient cohorts.</li>
+                        <li><strong>End-to-end Engineering:</strong> Package research models into production-ready CLIs,
+                            APIs, and dashboards with testing and docs.</li>
+                        <li><strong>Research Translation:</strong> Experience in wet lab to interpret model outputs for
+                            prioritizing CRISPR targets and drug combinations.</li>
                     </ul>
                 </div>
             </div>
@@ -1335,7 +1396,7 @@
             <div class="section-header animate-on-scroll">
                 <h2 class="section-title">Featured Projects</h2>
             </div>
-            
+
             <div class="portfolio-columns animate-on-scroll">
                 <div class="lane">
                     <div class="lane-content">
@@ -1349,33 +1410,44 @@
                                 <div class="card-content">
                                     <div class="project-header">
                                         <h3>🧬 scPerturb-CMap</h3>
-                                        <p class="project-description">Python toolkit for linking single-cell CRISPR screens to large drug-response datasets (Connectivity Map) to suggest drug repurposing strategies.</p>
+                                        <p class="project-description">Python toolkit for linking single-cell CRISPR
+                                            screens to large drug-response datasets (Connectivity Map) to suggest drug
+                                            repurposing strategies.</p>
                                     </div>
                                     <ul class="project-meta">
-                                        <li><i class="fas fa-code"></i><span>Uses deep learning to compare gene-editing and drug screens across tens of thousands of single cells.</span></li>
-                                        <li><i class="fas fa-robot"></i><span>Includes a FastAPI service so you can send an expression profile and get back a ranked list of compounds.</span></li>
+                                        <li><i class="fas fa-code"></i><span>Uses deep learning to compare gene-editing
+                                                and drug screens across tens of thousands of single cells.</span></li>
+                                        <li><i class="fas fa-robot"></i><span>Includes a FastAPI service so you can send
+                                                an expression profile and get back a ranked list of compounds.</span>
+                                        </li>
                                     </ul>
                                     <div class="project-tags">
                                         <span class="project-tag">Python</span>
                                         <span class="project-tag">PyTorch</span>
                                         <span class="project-tag">FastAPI</span>
                                     </div>
-	                                    <div class="project-actions">
-	                                        <a href="https://github.com/jameshyojaelee/scPerturb-CMap" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-	                                        <a href="#contact" class="project-link">Request Demo</a>
-	                                    </div>
-	                                </div>
-	                            </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/scPerturb-CMap" target="_blank"
+                                            rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                        <a href="#contact" class="project-link">Request Demo</a>
+                                    </div>
+                                </div>
+                            </div>
 
-	                            <div class="card project-card">
+                            <div class="card project-card">
                                 <div class="card-content">
                                     <div class="project-header">
                                         <h3>🧠 GPT-cell-annotator</h3>
-                                        <p class="project-description">AI assistant that annotates single-cell RNA-seq clusters.</p>
+                                        <p class="project-description">AI assistant that annotates single-cell RNA-seq
+                                            clusters.</p>
                                     </div>
                                     <ul class="project-meta">
-                                        <li><i class="fas fa-brain"></i><span>Builds prompts from marker genes, QC summaries, and ontology terms so the model sees the same context a human annotator would.</span></li>
-                                        <li><i class="fas fa-laptop-code"></i><span>Electron/React interface on top of a Python backend that writes annotations directly into your AnnData object.</span></li>
+                                        <li><i class="fas fa-brain"></i><span>Builds prompts from marker genes, QC
+                                                summaries, and ontology terms so the model sees the same context a human
+                                                annotator would.</span></li>
+                                        <li><i class="fas fa-laptop-code"></i><span>Electron/React interface on top of a
+                                                Python backend that writes annotations directly into your AnnData
+                                                object.</span></li>
                                     </ul>
                                     <div class="project-tags">
                                         <span class="project-tag">Python</span>
@@ -1383,22 +1455,26 @@
                                         <span class="project-tag">Electron</span>
                                         <span class="project-tag">LLM</span>
                                     </div>
-	                                    <div class="project-actions">
-	                                        <a href="https://github.com/jameshyojaelee/GPT-cell-annotator" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-	                                        <a href="#contact" class="project-link">Request Demo</a>
-	                                    </div>
-	                                </div>
-	                            </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/GPT-cell-annotator" target="_blank"
+                                            rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                        <a href="#contact" class="project-link">Request Demo</a>
+                                    </div>
+                                </div>
+                            </div>
 
-	                            <div class="card project-card">
+                            <div class="card project-card">
                                 <div class="card-content">
                                     <div class="project-header">
                                         <h3>🧬 CRISPR-studio</h3>
-                                        <p class="project-description">Web app for exploring CRISPR screen results, from guide design through QC and visualization.</p>
+                                        <p class="project-description">Web app for exploring CRISPR screen results, from
+                                            guide design through QC and visualization.</p>
                                     </div>
                                     <ul class="project-meta">
-                                        <li><i class="fas fa-dna"></i><span>Interactive plots help you spot dropouts, copy-number issues, and essential genes quickly.</span></li>
-                                        <li><i class="fas fa-server"></i><span>Rust backend scores guides and streams results into a TypeScript/React dashboard.</span></li>
+                                        <li><i class="fas fa-dna"></i><span>Interactive plots help you spot dropouts,
+                                                copy-number issues, and essential genes quickly.</span></li>
+                                        <li><i class="fas fa-server"></i><span>Rust backend scores guides and streams
+                                                results into a TypeScript/React dashboard.</span></li>
                                     </ul>
                                     <div class="project-tags">
                                         <span class="project-tag">TypeScript</span>
@@ -1406,21 +1482,27 @@
                                         <span class="project-tag">Rust</span>
                                         <span class="project-tag">D3.js</span>
                                     </div>
-	                                    <div class="project-actions">
-	                                        <a href="https://github.com/jameshyojaelee/CRISPR-studio" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            
-	                            <div class="card project-card">
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/CRISPR-studio" target="_blank"
+                                            rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card project-card">
                                 <div class="card-content">
                                     <div class="project-header">
                                         <h3>🧪 ProtoSense</h3>
-                                        <p class="project-description">Gemini 3-powered multi-agentic copilot for generating reproducible scientific research protocols</p>
+                                        <p class="project-description">Gemini 3-powered multi-agentic copilot for
+                                            generating reproducible scientific research protocols</p>
                                     </div>
                                     <ul class="project-meta">
-                                        <li><i class="fas fa-flask"></i><span>Extracts structured steps/parameters from text or PDFs and flags missing reagents, times, and ambiguous instructions.</span></li>
-                                        <li><i class="fas fa-clipboard-check"></i><span>Generates a reproducibility score, issue list, and step-by-step runbook with Methods patch suggestions.</span></li>
+                                        <li><i class="fas fa-flask"></i><span>Extracts structured steps/parameters from
+                                                text or PDFs and flags missing reagents, times, and ambiguous
+                                                instructions.</span></li>
+                                        <li><i class="fas fa-clipboard-check"></i><span>Generates a reproducibility
+                                                score, issue list, and step-by-step runbook with Methods patch
+                                                suggestions.</span></li>
                                     </ul>
                                     <div class="project-tags">
                                         <span class="project-tag">TypeScript</span>
@@ -1428,33 +1510,39 @@
                                         <span class="project-tag">Vite</span>
                                         <span class="project-tag">Gemini</span>
                                     </div>
-	                                    <div class="project-actions">
-	                                        <a href="https://github.com/jameshyojaelee/ProtoSense" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            
-	                            <div class="card project-card">
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/ProtoSense" target="_blank"
+                                            rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card project-card">
                                 <div class="card-content">
                                     <div class="project-header">
                                         <h3>🧬 OmniSpatial</h3>
-                                        <p class="project-description">Toolkit for turning spatial omics data from different platforms into a single, browsable format.</p>
+                                        <p class="project-description">Toolkit for turning spatial omics data from
+                                            different platforms into a single, browsable format.</p>
                                     </div>
                                     <ul class="project-meta">
-                                        <li><i class="fas fa-map-marked-alt"></i><span>Command-line tools convert Visium, CosMx, MIBI and similar exports into Zarr-based SpatialData/NGFF files.</span></li>
-                                        <li><i class="fas fa-cloud-upload-alt"></i><span>Ships with a Dockerized Next.js viewer that serves tiled images and overlays in the browser.</span></li>
+                                        <li><i class="fas fa-map-marked-alt"></i><span>Command-line tools convert
+                                                Visium, CosMx, MIBI and similar exports into Zarr-based SpatialData/NGFF
+                                                files.</span></li>
+                                        <li><i class="fas fa-cloud-upload-alt"></i><span>Ships with a Dockerized Next.js
+                                                viewer that serves tiled images and overlays in the browser.</span></li>
                                     </ul>
                                     <div class="project-tags">
                                         <span class="project-tag">Python</span>
                                         <span class="project-tag">Next.js</span>
                                     </div>
-	                                    <div class="project-actions">
-	                                        <a href="https://github.com/jameshyojaelee/OmniSpatial" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/OmniSpatial" target="_blank"
+                                            rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="lane">
@@ -1469,12 +1557,16 @@
                                 <div class="card-content">
                                     <div class="project-header">
                                         <h3>🧾 Biotech Earnings Call NLP</h3>
-                                        <p class="project-description">Pipeline to parse biotech earnings calls, extract catalysts, and surface sentiment/snippets for PM briefings.</p>
+                                        <p class="project-description">Pipeline to parse biotech earnings calls, extract
+                                            catalysts, and surface sentiment/snippets for PM briefings.</p>
                                     </div>
                                     <ul class="project-meta">
-                                        <li><i class="fas fa-file-audio"></i><span>Ingests call transcripts and segments by speakers/sections.</span></li>
-                                        <li><i class="fas fa-highlighter"></i><span>Pulls catalysts (trials, approvals, guidance) with sentiment flags.</span></li>
-                                        <li><i class="fas fa-clipboard-check"></i><span>Summaries shaped for quick PM handoff alongside ETF/factor context.</span></li>
+                                        <li><i class="fas fa-file-audio"></i><span>Ingests call transcripts and segments
+                                                by speakers/sections.</span></li>
+                                        <li><i class="fas fa-highlighter"></i><span>Pulls catalysts (trials, approvals,
+                                                guidance) with sentiment flags.</span></li>
+                                        <li><i class="fas fa-clipboard-check"></i><span>Summaries shaped for quick PM
+                                                handoff alongside ETF/factor context.</span></li>
                                     </ul>
                                     <div class="project-tags">
                                         <span class="project-tag">Python</span>
@@ -1482,37 +1574,44 @@
                                         <span class="project-tag">Earnings calls</span>
                                         <span class="project-tag">Hedge fund</span>
                                     </div>
-	                                    <div class="project-actions">
-	                                        <a href="https://github.com/jameshyojaelee/biotech-earning-NLP" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-	                                        <a href="#contact" class="project-link">Discuss findings</a>
-	                                    </div>
-	                                </div>
-	                            </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/biotech-earning-NLP" target="_blank"
+                                            rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                        <a href="#contact" class="project-link">Discuss findings</a>
+                                    </div>
+                                </div>
+                            </div>
 
-	                            <div class="card project-card">
+                            <div class="card project-card">
                                 <div class="card-content">
                                     <div class="project-header">
                                         <h3>📊 Health ETF Quant</h3>
-                                        <p class="project-description">Regime-aware XBI vs XPH spread plus momentum rotation across healthcare subsectors with clear risk notes and benchmarks.</p>
+                                        <p class="project-description">Regime-aware XBI vs XPH spread plus momentum
+                                            rotation across healthcare subsectors with clear risk notes and benchmarks.
+                                        </p>
                                     </div>
                                     <ul class="project-meta">
-                                        <li><i class="fas fa-random"></i><span>Strategy 1: macro regime classifier gates a biotech vs pharma long/short spread.</span></li>
-                                        <li><i class="fas fa-chart-line"></i><span>Strategy 2: cross-sectional momentum with volatility targeting across XLV, XBI, XPH, IHF, IHI.</span></li>
-                                        <li><i class="fas fa-clipboard-check"></i><span>Includes benchmarks, factor context, and explicit assumptions for PM review.</span></li>
+                                        <li><i class="fas fa-random"></i><span>Strategy 1: macro regime classifier gates
+                                                a biotech vs pharma long/short spread.</span></li>
+                                        <li><i class="fas fa-chart-line"></i><span>Strategy 2: cross-sectional momentum
+                                                with volatility targeting across XLV, XBI, XPH, IHF, IHI.</span></li>
+                                        <li><i class="fas fa-clipboard-check"></i><span>Includes benchmarks, factor
+                                                context, and explicit assumptions for PM review.</span></li>
                                     </ul>
                                     <div class="project-tags">
                                         <span class="project-tag">Python</span>
                                         <span class="project-tag">Backtesting</span>
                                         <span class="project-tag">ETF</span>
                                     </div>
-	                                    <div class="project-actions">
-	                                        <a href="https://github.com/jameshyojaelee/health-etf-quant" target="_blank" rel="noopener noreferrer" class="project-link primary">View Code</a>
-	                                        <a href="#contact" class="project-link">Discuss results</a>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/health-etf-quant" target="_blank"
+                                            rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                        <a href="#contact" class="project-link">Discuss results</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1525,48 +1624,58 @@
                 <h2 class="section-title">Publications</h2>
                 <p class="section-subtitle">Contributing to the advancement of scientific knowledge</p>
             </div>
-            
+
             <div class="animate-on-scroll">
                 <h3 style="color: var(--primary-color); margin-bottom: 2rem; font-size: 1.5rem;">
                     <i class="fas fa-star"></i> First and Co-first Author Publications
                 </h3>
-                
+
                 <div class="publication-item">
-                    <div class="publication-title">Inhibition of SUMOylation Induces Adaptive Anti-Tumor Immunity Against Pancreatic Cancer through Multiple Effects on the Tumor Microenvironment</div>
-                    <div class="publication-authors">Erdem, S., <strong>Lee, H. J.</strong>, Suryanarayanan, J., et al.</div>
+                    <div class="publication-title">Inhibition of SUMOylation Induces Adaptive Anti-Tumor Immunity
+                        Against Pancreatic Cancer through Multiple Effects on the Tumor Microenvironment</div>
+                    <div class="publication-authors">Erdem, S., <strong>Lee, H. J.</strong>, Suryanarayanan, J., et al.
+                    </div>
                     <div class="publication-journal">Molecular Cancer Therapeutics 2024</div>
-                    <a href="MCT2024.pdf" download="MCT2024.pdf" style="color: var(--primary-color); text-decoration: none; font-size: 0.9rem;">
+                    <a href="MCT2024.pdf" download="MCT2024.pdf"
+                        style="color: var(--primary-color); text-decoration: none; font-size: 0.9rem;">
                         <i class="fas fa-download"></i> Download PDF
                     </a>
                 </div>
-                
+
                 <div class="publication-item">
-                    <div class="publication-title">Liposomal Doxorubicin, but Not Platinum-Taxane, Supports MHC-II Expression and Immune Maturation in the Ovarian Tumor Microenvironment</div>
+                    <div class="publication-title">Liposomal Doxorubicin, but Not Platinum-Taxane, Supports MHC-II
+                        Expression and Immune Maturation in the Ovarian Tumor Microenvironment</div>
                     <div class="publication-authors"><strong>Lee, H.</strong>, Chen, X., Ozmadenci, D., et al.</div>
                     <div class="publication-journal">Cancers 2025</div>
                 </div>
-                
+
                 <h3 style="color: var(--primary-color); margin: 3rem 0 2rem 0; font-size: 1.5rem;">
                     <i class="fas fa-users"></i> Co-author Publications
                 </h3>
-                
+
                 <div class="publication-item">
-                    <div class="publication-title">Ovarian Tumor FAK Inhibition Releases Omega-3 Fatty Acids Stimulating GATA6 Peritoneal Macrophage CXCL13 Production Enhancing Immunotherapy</div>
+                    <div class="publication-title">Ovarian Tumor FAK Inhibition Releases Omega-3 Fatty Acids Stimulating
+                        GATA6 Peritoneal Macrophage CXCL13 Production Enhancing Immunotherapy</div>
                     <div class="publication-journal">bioRxiv 2025</div>
-                    <a href="https://www.biorxiv.org/content/10.1101/2025.09.12.675975v1" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-size: 0.9rem;">
+                    <a href="https://www.biorxiv.org/content/10.1101/2025.09.12.675975v1" target="_blank"
+                        rel="noopener noreferrer"
+                        style="color: var(--primary-color); text-decoration: none; font-size: 0.9rem;">
                         <i class="fas fa-external-link-alt"></i> Preprint
                     </a>
                 </div>
-                
+
                 <div class="publication-item">
-                    <div class="publication-title">SUMO Inhibition Plus CD40 Agonism Increases Anti-Tumor Immunogenicity Through Interferon Mediated Macrophage Activation</div>
+                    <div class="publication-title">SUMO Inhibition Plus CD40 Agonism Increases Anti-Tumor Immunogenicity
+                        Through Interferon Mediated Macrophage Activation</div>
                     <div class="publication-authors">Li, K., Courelli, A., <strong>Lee, H. J.</strong>, et al.</div>
                     <div class="publication-journal">bioRxiv 2024</div>
                 </div>
-                
+
                 <div class="publication-item">
-                    <div class="publication-title">An Ex Vivo Organotypic Culture Platform for Functional Interrogation of Human Appendiceal Cancer Reveals a Prominent and Heterogenous Immunological Landscape</div>
-                    <div class="publication-authors">Weitz, J.*, Hurtado de Mendoza, T.*, Tiriac, H., <strong>Lee, J.</strong>, et al.</div>
+                    <div class="publication-title">An Ex Vivo Organotypic Culture Platform for Functional Interrogation
+                        of Human Appendiceal Cancer Reveals a Prominent and Heterogenous Immunological Landscape</div>
+                    <div class="publication-authors">Weitz, J.*, Hurtado de Mendoza, T.*, Tiriac, H., <strong>Lee,
+                            J.</strong>, et al.</div>
                     <div class="publication-journal">Clinical Cancer Research 2022</div>
                 </div>
             </div>
@@ -1580,7 +1689,7 @@
                 <h2 class="section-title">Experience</h2>
                 <p class="section-subtitle">Journey through cutting-edge research and innovation</p>
             </div>
-            
+
             <div class="timeline animate-on-scroll">
                 <div class="timeline-item">
                     <div class="timeline-content">
@@ -1597,14 +1706,15 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">January 2023 - July 2024</div>
                         <h3 class="timeline-title">Research Associate</h3>
                         <div class="timeline-company">Scale Biosciences</div>
                         <div class="timeline-description">
-                            <p>Played a key role in developing Quantum Barcoding technology single-cell RNA assay using combinatorial indexing. </p>
+                            <p>Played a key role in developing Quantum Barcoding technology single-cell RNA assay using
+                                combinatorial indexing. </p>
                         </div>
                         <div class="timeline-stack">
                             <span class="skill-tag">Single-cell Omics</span>
@@ -1613,14 +1723,15 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">January 2023 - October 2023</div>
                         <h3 class="timeline-title">Research Associate</h3>
                         <div class="timeline-company">UC San Diego, Moores Cancer Center, Stupack Lab</div>
                         <div class="timeline-description">
-                            <p>Delivered scRNA-seq analysis of high-grade serous ovarian cancer, delivering key insights into platinum-based chemotherapy resistance (1st author publication).</p>
+                            <p>Delivered scRNA-seq analysis of high-grade serous ovarian cancer, delivering key insights
+                                into platinum-based chemotherapy resistance (1st author publication).</p>
                         </div>
                         <div class="timeline-stack">
                             <span class="skill-tag">Cancer Biology</span>
@@ -1630,14 +1741,16 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">August 2021 - November 2022</div>
                         <h3 class="timeline-title">Research Associate</h3>
                         <div class="timeline-company">UC San Diego, Moores Cancer Center, Chen Lab</div>
                         <div class="timeline-description">
-                            <p>Led a project investigating tumor microenvironment changes in pancreatic ductal adenocarcinoma, uncovering significant changes in tumor-infiltrating lymphocytes and macrophage polarization upon SUMOylation inhibition (1st author publication).</p>
+                            <p>Led a project investigating tumor microenvironment changes in pancreatic ductal
+                                adenocarcinoma, uncovering significant changes in tumor-infiltrating lymphocytes and
+                                macrophage polarization upon SUMOylation inhibition (1st author publication).</p>
                         </div>
                         <div class="timeline-stack">
                             <span class="skill-tag">Cancer Biology</span>
@@ -1657,7 +1770,7 @@
                 <h2 class="section-title">Technical Skills</h2>
                 <p class="section-subtitle">Tools and technologies driving innovation</p>
             </div>
-            
+
             <div class="skills-grid animate-on-scroll">
                 <div class="card">
                     <div class="card-content">
@@ -1677,7 +1790,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="card">
                     <div class="card-content">
                         <h3>Bioinformatics & Genomics</h3>
@@ -1691,7 +1804,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="card">
                     <div class="card-content">
                         <h3>Infrastructure & Tools</h3>
@@ -1706,7 +1819,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="card">
                     <div class="card-content">
                         <h3>Laboratory Techniques</h3>
@@ -1730,14 +1843,15 @@
             <div class="section-header animate-on-scroll">
                 <h2 class="section-title">Education</h2>
             </div>
-            
+
             <div class="grid grid-2 animate-on-scroll">
                 <div class="card">
                     <div class="card-content">
                         <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
                             <i class="fas fa-graduation-cap"></i> New York University
                         </h3>
-                        <h4 style="color: var(--text-secondary); margin-bottom: 0.5rem;">Master of Science in Bioinformatics and Systems Biology</h4>
+                        <h4 style="color: var(--text-secondary); margin-bottom: 0.5rem;">Master of Science in
+                            Bioinformatics and Systems Biology</h4>
                         <p style="color: var(--text-secondary);">September 2024 - May 2025 | New York, NY</p>
                         <div style="margin-top: 1rem;">
                             <span class="skill-tag">Bioinformatics</span>
@@ -1746,14 +1860,16 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="card">
                     <div class="card-content">
                         <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
                             <i class="fas fa-graduation-cap"></i> UC San Diego
                         </h3>
-                        <h4 style="color: var(--text-secondary); margin-bottom: 0.5rem;">Bachelor of Science - Double Major</h4>
-                        <p style="color: var(--text-secondary);">General Biology | Political Science - Data Analytics</p>
+                        <h4 style="color: var(--text-secondary); margin-bottom: 0.5rem;">Bachelor of Science - Double
+                            Major</h4>
+                        <p style="color: var(--text-secondary);">General Biology | Political Science - Data Analytics
+                        </p>
                         <p style="color: var(--text-secondary);">January 2019 - July 2021 | La Jolla, CA</p>
                         <div style="margin-top: 1rem;">
                             <span class="skill-tag">Molecular Biology</span>
@@ -1771,9 +1887,10 @@
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <h2 class="section-title">Let's Connect</h2>
-                <p class="section-subtitle">Interested in collaboration or just want to chat about bioinformatics and technology? I'm always open to discussing innovative projects and potential partnerships.</p>
+                <p class="section-subtitle">Interested in collaboration or just want to chat about bioinformatics and
+                    technology? I'm always open to discussing innovative projects and potential partnerships.</p>
             </div>
-            
+
             <div class="contact-grid animate-on-scroll">
                 <a href="mailto:james.hyojae.lee@gmail.com" class="contact-item">
                     <div class="contact-icon">
@@ -1784,7 +1901,7 @@
                         <p>james.hyojae.lee@gmail.com</p>
                     </div>
                 </a>
-                
+
                 <a href="tel:+18582101206" class="contact-item">
                     <div class="contact-icon">
                         <i class="fas fa-phone"></i>
@@ -1794,8 +1911,9 @@
                         <p>(858) 210-1206</p>
                     </div>
                 </a>
-                
-                <a href="https://www.linkedin.com/in/jameshyojaelee/" class="contact-item" target="_blank" rel="noopener noreferrer">
+
+                <a href="https://www.linkedin.com/in/jameshyojaelee/" class="contact-item" target="_blank"
+                    rel="noopener noreferrer">
                     <div class="contact-icon">
                         <i class="fab fa-linkedin"></i>
                     </div>
@@ -1804,7 +1922,7 @@
                         <p>Professional Profile</p>
                     </div>
                 </a>
-                
+
                 <a href="https://x.com/JamesHyojaeLee" class="contact-item" target="_blank" rel="noopener noreferrer">
                     <div class="contact-icon">
                         <i class="fab fa-twitter"></i>
@@ -1814,8 +1932,9 @@
                         <p>@JamesHyojaeLee</p>
                     </div>
                 </a>
-                
-                <a href="https://github.com/jameshyojaelee" class="contact-item" target="_blank" rel="noopener noreferrer">
+
+                <a href="https://github.com/jameshyojaelee" class="contact-item" target="_blank"
+                    rel="noopener noreferrer">
                     <div class="contact-icon">
                         <i class="fab fa-github"></i>
                     </div>
@@ -1824,8 +1943,9 @@
                         <p>Code Portfolio</p>
                     </div>
                 </a>
-                
-                <a href="https://scholar.google.com/citations?user=Mwmq8b4AAAAJ&hl=en" class="contact-item" target="_blank" rel="noopener noreferrer">
+
+                <a href="https://scholar.google.com/citations?user=Mwmq8b4AAAAJ&hl=en" class="contact-item"
+                    target="_blank" rel="noopener noreferrer">
                     <div class="contact-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
@@ -1834,7 +1954,7 @@
                         <p>Publications</p>
                     </div>
                 </a>
-                
+
                 <a href="javascript:void(0)" class="contact-item" onclick="openCVModal()">
                     <div class="contact-icon">
                         <i class="fas fa-download"></i>
@@ -1845,10 +1965,12 @@
                     </div>
                 </a>
             </div>
-            
-            <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+
+            <div
+                style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
                 <p style="color: var(--text-secondary);">📍 New York, NY 10013</p>
-                <p style="color: var(--text-muted); margin-top: 1rem;">"Advancing precision medicine through computational biology and single-cell genomics"</p>
+                <p style="color: var(--text-muted); margin-top: 1rem;">"Advancing precision medicine through
+                    computational biology and single-cell genomics"</p>
             </div>
         </div>
     </section>
@@ -1863,8 +1985,10 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeCVModal()">&times;</button>
             <h2 style="color: var(--primary-color); margin-bottom: 1rem;">Download CV</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Get my complete curriculum vitae with detailed information about my research experience, publications, and skills.</p>
-            <a href="CV_James_Hyojae_Lee.pdf" download="CV_James_Hyojae_Lee.pdf" class="btn btn-primary" style="margin-right: 1rem;">
+            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Get my complete curriculum vitae with detailed
+                information about my research experience, publications, and skills.</p>
+            <a href="CV_James_Hyojae_Lee.pdf" download="CV_James_Hyojae_Lee.pdf" class="btn btn-primary"
+                style="margin-right: 1rem;">
                 <i class="fas fa-download"></i> Download PDF
             </a>
             <button onclick="closeCVModal()" class="btn btn-secondary">Close</button>
@@ -1921,16 +2045,16 @@
             const container = document.getElementById('floating-elements');
             const spawnEvery = isMobile ? 8000 : 3000;
             const maxLifetime = isMobile ? 18000 : 25000;
-            
+
             setInterval(() => {
                 const element = document.createElement('div');
                 element.className = 'floating-element';
                 element.style.left = Math.random() * 100 + '%';
                 element.style.animationDelay = Math.random() * 2 + 's';
                 element.style.animationDuration = (Math.random() * 10 + 15) + 's';
-                
+
                 container.appendChild(element);
-                
+
                 setTimeout(() => {
                     element.remove();
                 }, maxLifetime);
@@ -1944,7 +2068,7 @@
                 item.style.animationDelay = index * 0.2 + 's';
             });
         }
-        
+
         // Scroll progress, section indicator, and nav highlighting
         function initScrollSignals() {
             const progressBar = document.getElementById('scroll-progress');
@@ -2031,103 +2155,152 @@
             });
         }
 
-        // Hero parallax particles
+        // Hero parallax particles - Physics based
         function initHeroParallax() {
             const hero = document.querySelector('.hero');
             const container = document.getElementById('hero-parallax');
             if (!hero || !container) return;
 
-            const colors = [
-                'rgba(0, 255, 136, 0.35)',
-                'rgba(0, 180, 255, 0.28)',
-                'rgba(255, 255, 255, 0.65)'
-            ];
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            // Doubled count (100 -> 200, 38 -> 76)
+            const particleCount = isMobile ? 76 : 200;
+            const particles = [];
 
-            const orbs = [];
-            const orbCount = isMobile ? 24 : 90;
-            const hasShadow = !isMobile;
+            // Mouse state
+            const mouse = { x: -1000, y: -1000, vx: 0, vy: 0, lastX: -1000, lastY: -1000 };
 
-            for (let i = 0; i < orbCount; i++) {
+            // Configuration
+            const friction = 0.96; // Slows down particles
+            const baseSpeed = 0.2; // Constant drift
+            const repulsionRadius = 150;
+            const repulsionForce = 0.5;
+            const mouseReactionSensitivity = 0.12; // How much stars follow mouse velocity
+
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            // Create particles
+            for (let i = 0; i < particleCount; i++) {
                 const orb = document.createElement('div');
                 orb.className = 'parallax-orb';
-                const size = Math.random() * 6 + 4;
+
+                // Random size 2-4px
+                const size = Math.random() * 2 + 2;
                 orb.style.width = `${size}px`;
                 orb.style.height = `${size}px`;
-                const baseX = Math.random() * 80 + 10;
-                const baseY = Math.random() * 70 + 10;
-                orb.style.left = `${baseX}%`;
-                orb.style.top = `${baseY}%`;
-                const base = colors[i % colors.length];
-                orb.style.background = `radial-gradient(circle, rgba(255,255,255,0.9) 0%, ${base} 50%, rgba(0,0,0,0) 75%)`;
-                if (!hasShadow) {
-                    orb.style.boxShadow = 'none';
-                    orb.style.filter = 'none';
+
+                // Random opacity
+                orb.style.opacity = Math.random() * 0.5 + 0.3;
+
+                // Subtle color tint (mostly white/bluish)
+                const hue = Math.random() > 0.5 ? 160 : 210; // Teal or Blue
+                orb.style.backgroundColor = `hsl(${hue}, 70%, 90%)`;
+                if (Math.random() > 0.8) {
+                    orb.style.boxShadow = `0 0 ${size * 2}px hsla(${hue}, 70%, 60%, 0.4)`;
                 }
-                orb.dataset.speed = (Math.random() * 1.2 + 0.8).toFixed(2); // baseline parallax strength
-                orb.dataset.drift = (Math.random() * 1.2 + 0.8).toFixed(2); // wobble variance
-                orb.dataset.x = baseX.toFixed(2);
-                orb.dataset.y = baseY.toFixed(2);
+
                 container.appendChild(orb);
-                orbs.push(orb);
+
+                // Burst initialization
+                // Start at center
+                const startX = width / 2;
+                const startY = height / 2;
+
+                // Burst velocity: random direction, high speed
+                const angle = Math.random() * Math.PI * 2;
+                const burstSpeed = Math.random() * 20 + 10; // Speed 10-30
+
+                particles.push({
+                    element: orb,
+                    x: startX,
+                    y: startY,
+                    vx: Math.cos(angle) * burstSpeed,
+                    vy: Math.sin(angle) * burstSpeed,
+                    baseVx: (Math.random() - 0.5) * baseSpeed * 2,
+                    baseVy: (Math.random() - 0.5) * baseSpeed * 2,
+                    friction: friction + Math.random() * 0.02
+                });
             }
 
-            const cursor = { x: 0.5, y: 0.5 };
-            const smooth = { x: 0.5, y: 0.5 };
-            let scrollRatio = 0.5;
-            let heroRect = hero.getBoundingClientRect();
+            // Track mouse with velocity calculation
+            document.addEventListener('mousemove', (e) => {
+                const currentX = e.clientX;
+                const currentY = e.clientY;
 
-            hero.addEventListener('mousemove', (event) => {
-                const rect = hero.getBoundingClientRect();
-                cursor.x = (event.clientX - rect.left) / rect.width;
-                cursor.y = (event.clientY - rect.top) / rect.height;
+                if (mouse.lastX !== -1000) {
+                    mouse.vx = currentX - mouse.lastX;
+                    mouse.vy = currentY - mouse.lastY;
+                }
+
+                mouse.x = currentX;
+                mouse.y = currentY;
+                mouse.lastX = currentX;
+                mouse.lastY = currentY;
             });
 
-            hero.addEventListener('mouseleave', () => {
-                cursor.x = 0.5;
-                cursor.y = 0.5;
+            document.addEventListener('mouseleave', () => {
+                mouse.x = -1000;
+                mouse.y = -1000;
+                mouse.vx = 0;
+                mouse.vy = 0;
+                mouse.lastX = -1000;
+                mouse.lastY = -1000;
             });
 
-            const updateHeroRect = () => {
-                heroRect = hero.getBoundingClientRect();
-            };
+            // Animation Loop
+            function animate() {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
 
-            window.addEventListener('resize', updateHeroRect);
+                // Decay mouse velocity
+                mouse.vx *= 0.9;
+                mouse.vy *= 0.9;
 
-            window.addEventListener('scroll', () => {
-                updateHeroRect();
-                scrollRatio = Math.min(Math.max((0 - heroRect.top) / heroRect.height, 0), 1);
-            });
+                particles.forEach(p => {
+                    // 1. Apply Base Drift & Friction
+                    // Transition from current velocity (burst) to base velocity (drift)
+                    p.vx += (p.baseVx - p.vx) * (1 - p.friction);
+                    p.vy += (p.baseVy - p.vy) * (1 - p.friction);
 
-            let startTime = null;
-            const animate = (time) => {
-                if (startTime === null) startTime = time;
-                const intro = Math.min(1, (time - startTime) / 2000);
+                    // 2. Mouse Interaction
+                    const dx = p.x - mouse.x;
+                    const dy = p.y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
 
-                smooth.x += (cursor.x - smooth.x) * 0.005;
-                smooth.y += (cursor.y - smooth.y) * 0.005;
+                    if (dist < repulsionRadius) {
+                        const angle = Math.atan2(dy, dx);
+                        const force = (repulsionRadius - dist) / repulsionRadius;
 
-                const targetX = smooth.x * heroRect.width;
-                const targetY = smooth.y * heroRect.height;
+                        // a. Repulsion
+                        const push = force * repulsionForce;
+                        p.vx += Math.cos(angle) * push;
+                        p.vy += Math.sin(angle) * push;
 
-                orbs.forEach((orb, idx) => {
-                    const speed = parseFloat(orb.dataset.speed);
-                    const drift = parseFloat(orb.dataset.drift);
-                    const baseX = (parseFloat(orb.dataset.x) / 100) * heroRect.width;
-                    const baseY = (parseFloat(orb.dataset.y) / 100) * heroRect.height;
-                    const wobbleX = Math.sin(time * 0.0011 * drift + idx) * 8;
-                    const wobbleY = Math.cos(time * 0.0013 * drift + idx) * 8;
-                    const deltaX = (targetX - baseX) * (0.9 + speed * 0.69);
-                    const deltaY = (targetY - baseY) * (0.9 + speed * 0.69);
-                    const offsetX = deltaX * intro + wobbleX;
-                    const offsetY = deltaY * intro + wobbleY + (scrollRatio - 0.5) * 30 * intro;
-                    const scale = 0.69 + Math.sin(time * 0.0009 + idx) * 0.12;
-                    const opacity = 0.69 + Math.sin(time * 0.0014 + idx) * 0.2;
-                    orb.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0) scale(${scale})`;
-                    orb.style.opacity = Math.min(Math.max(opacity, 0.35), 1);
+                        // b. Mouse Velocity Reaction ("Stirring" effect)
+                        p.vx += mouse.vx * force * mouseReactionSensitivity;
+                        p.vy += mouse.vy * force * mouseReactionSensitivity;
+                    }
+
+                    // 3. Update Position
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    // 4. Wrap around screen (only after burst has spread them out)
+                    // We add a check to see if velocity is low enough to start wrapping, 
+                    // or just wrap anyway. Wrapping during burst might look weird if they 
+                    // hit edge immediately.
+                    // Simple wrapping:
+                    if (p.x < -50) p.x = width + 50;
+                    if (p.x > width + 50) p.x = -50;
+                    if (p.y < -50) p.y = height + 50;
+                    if (p.y > height + 50) p.y = -50;
+
+                    // 5. Apply to DOM
+                    p.element.style.transform = `translate3d(${p.x}px, ${p.y}px, 0)`;
                 });
 
                 requestAnimationFrame(animate);
-            };
+            }
 
             requestAnimationFrame(animate);
         }
@@ -2135,7 +2308,7 @@
         // Micro-haptic ripples on buttons and links
         function initRipples() {
             const rippleTargets = document.querySelectorAll('.btn, .social-link, .contact-item');
-            
+
             rippleTargets.forEach(target => {
                 target.addEventListener('click', (event) => {
                     const rect = target.getBoundingClientRect();
@@ -2163,7 +2336,7 @@
         }
 
         // Close modal when clicking outside
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             const modal = document.getElementById('cvModal');
             if (event.target === modal) {
                 modal.style.display = 'none';
@@ -2185,7 +2358,7 @@
         function typeWriter(element, text, speed = 50) {
             let i = 0;
             element.innerHTML = '';
-            
+
             function type() {
                 if (i < text.length) {
                     element.innerHTML += text.charAt(i);
@@ -2193,7 +2366,7 @@
                     setTimeout(type, speed);
                 }
             }
-            
+
             type();
         }
 
@@ -2206,4 +2379,5 @@
         });
     </script>
 </body>
-</html> 
+
+</html>
