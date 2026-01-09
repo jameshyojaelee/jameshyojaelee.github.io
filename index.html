@@ -1540,44 +1540,44 @@
                                         <span class="project-tag">React</span>
                                         <span class="project-tag">Vite</span>
                                     </div>
-	                                    <div class="project-actions">
-	                                        <a href="https://github.com/jameshyojaelee/ProtoSense" target="_blank"
-	                                            rel="noopener noreferrer" class="project-link primary">View Code</a>
-	                                    </div>
-	                                </div>
-	                            </div>
-	
-	                            <div class="card project-card">
-	                                <div class="card-content">
-	                                    <div class="project-header">
-	                                        <h3>🧠 GPT-cell-annotator</h3>
-	                                        <p class="project-description">AI assistant that annotates single-cell RNA-seq
-	                                            clusters.</p>
-	                                    </div>
-	                                    <ul class="project-meta">
-	                                        <li><i class="fas fa-brain"></i><span>Builds prompts from marker genes, QC
-	                                                summaries, and ontology terms so the model sees the same context a human
-	                                                annotator would.</span></li>
-	                                        <li><i class="fas fa-laptop-code"></i><span>Electron/React interface on top of a
-	                                                Python backend that writes annotations directly into your AnnData
-	                                                object.</span></li>
-	                                    </ul>
-	                                    <div class="project-tags">
-	                                        <span class="project-tag">Python</span>
-	                                        <span class="project-tag">React</span>
-	                                        <span class="project-tag">Electron</span>
-	                                        <span class="project-tag">LLM</span>
-	                                    </div>
-	                                    <div class="project-actions">
-	                                        <a href="https://github.com/jameshyojaelee/GPT-cell-annotator" target="_blank"
-	                                            rel="noopener noreferrer" class="project-link primary">View Code</a>
-	                                        <a href="#contact" class="project-link">Request Demo</a>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/ProtoSense" target="_blank"
+                                            rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card project-card">
+                                <div class="card-content">
+                                    <div class="project-header">
+                                        <h3>🧠 GPT-cell-annotator</h3>
+                                        <p class="project-description">AI assistant that annotates single-cell RNA-seq
+                                            clusters.</p>
+                                    </div>
+                                    <ul class="project-meta">
+                                        <li><i class="fas fa-brain"></i><span>Builds prompts from marker genes, QC
+                                                summaries, and ontology terms so the model sees the same context a human
+                                                annotator would.</span></li>
+                                        <li><i class="fas fa-laptop-code"></i><span>Electron/React interface on top of a
+                                                Python backend that writes annotations directly into your AnnData
+                                                object.</span></li>
+                                    </ul>
+                                    <div class="project-tags">
+                                        <span class="project-tag">Python</span>
+                                        <span class="project-tag">React</span>
+                                        <span class="project-tag">Electron</span>
+                                        <span class="project-tag">LLM</span>
+                                    </div>
+                                    <div class="project-actions">
+                                        <a href="https://github.com/jameshyojaelee/GPT-cell-annotator" target="_blank"
+                                            rel="noopener noreferrer" class="project-link primary">View Code</a>
+                                        <a href="#contact" class="project-link">Request Demo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="lane">
                     <div class="lane-content">
@@ -2220,8 +2220,8 @@
             if (!hero || !container) return;
 
             const isMobile = window.matchMedia('(max-width: 768px)').matches;
-            // Doubled count (100 -> 200, 38 -> 76)
-            const particleCount = isMobile ? 76 : 200;
+            // Doubled count (100 -> 200, 38 -> 76) -> Doubled again for better density
+            const particleCount = isMobile ? 150 : 400;
             const particles = [];
 
             // Mouse state
@@ -2266,7 +2266,7 @@
 
                 // Burst velocity: random direction, high speed
                 const angle = Math.random() * Math.PI * 2;
-                const burstSpeed = Math.random() * 20 + 10; // Speed 10-30
+                const burstSpeed = Math.random() * 15 + 5; // Speed 5-20 (Balanced)
 
                 particles.push({
                     element: orb,
